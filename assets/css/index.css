@@ -1,0 +1,223 @@
+.width-100{
+  width:100%;
+}
+
+.logo{
+  width:50% !important;
+  position:relative;
+  float:right;
+  animation-delay: .5s;
+  animation-name: checkRotation;
+  animation-iteration-count: 1;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  margin-bottom: 100%;
+}
+
+.wrong_border{
+  border:2px solid red !important;
+}
+
+.codex-input{
+  background:#1F1F1F;
+  border:1px solid #e6e6e6;
+  color:white !important;
+  box-shadow:none;
+
+}
+
+@keyframes checkRotation {
+  0%{
+    transform:rotate(0deg);
+  }
+  50%{
+    transform:rotate(20deg);
+  }
+  100%{
+    transform:rotate(0deg);
+  }
+}
+
+@keyframes submitButtonAni {
+  from {
+    background:#1F1F1F ;
+    color:white;
+    border-color:#1F1F1F ;
+  }
+  to{
+    background:white ;
+    color:#1F1F1F;
+    border-color:white ;
+  }
+}
+
+
+@keyframes upside-nav-animation{
+  from{
+    position:absolute;
+    top:40%;
+
+  }
+
+  to{
+    top:0%;
+    background:black;
+  }
+}
+
+
+@keyframes title_fade{
+  from{
+    opacity:0%;
+
+  }
+
+  to{
+    opacity:100%;
+  }
+}
+
+
+
+
+
+.upside-title{
+  animation:title_fade .5s 1 ease-in;
+  position:absolute;
+  top:4%;
+  left:2%;
+  font-size:25px;
+  z-index:99;
+  animation-delay: 2;
+  font-family:cursive;
+  color:red;
+
+}
+
+
+
+.title{
+  position:absolute;
+  top:5%;
+  width:100%;
+}
+
+
+
+
+
+
+
+.navbar {
+  position:absolute;
+  width:100%;
+  top:40%;
+  padding:0;
+  height:90px !important;
+}
+
+.upside-navbar{
+  position:absolute;
+  animation: upside-nav-animation .5s ease-in 1;
+  background:black;
+
+  top:0%;
+  width:100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.codex-input:focus{
+  outline:none !important;
+  border-color:green;
+  border-width:2px;
+  background:#1F1F1F;
+}
+.submit-button:hover{
+  background:white;
+  color:#1F1F1F !important;
+  border-color:white;
+  animation: 1 ease-in submitButtonAni .5s;
+}
+.submit-button{
+  background:#1F1F1F;
+  color:white;
+  border-color:#1F1F1F;
+}
+.submit-button:hover{
+  color:white;
+
+}
+.form-control:focus{
+  outline:none !important;
+  background:#1F1F1F;
+}
+.title{
+  font-family: cursive;
+  color:red;
+  text-align: center !important;
+  display: flex;
+  width:100%;
+  justify-content: center;
+  font-size:70px;
+  margin-top:10%;
+}
+.margin-left-10{
+  margin-left:10%;
+}
+.margin-left-5{
+  margin-left:5%;
+}
+
+
+.black-geometry{
+  background:url("./../img/dark_geometric.png");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.youtube_container{
+  width:100%;
+  height:100%;
+  margin-top:7.5%;
+}
+
+.codepen_editor{
+  width:100%;
+  height:300px;
+}
+
+
+
+
+.youtube_video{
+  height:500px !important;
+  padding:0;
+  margin:0;
+  width:100% !important;
+}
