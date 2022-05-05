@@ -55,6 +55,39 @@ const TutorialAndCode = (term) => {
 
 }
 
+const AttachFeaturedArrows = () => {
+  const quizArrow = $("<div>");
+  const meetupArrow = $("<div>");
+  const quizButton = $("<img>");
+  const meetupButton = $("<img>");
+  const meetupText = $("<p>");
+  const quizText= $("<p>");
+
+
+  meetupButton.addClass("sidebar_button sidebar_button_left");
+  quizText.addClass("side_bar_text");
+  meetupText.addClass("side_bar_text");
+  quizText.text("Quizzes");
+  meetupText.text("Events Near You");
+  quizButton.addClass("sidebar_button sidebar_button_right");
+  quizButton.attr("src","./assets/img/arrow.png");
+  meetupButton.attr("src","./assets/img/arrow.png");
+
+  quizArrow.addClass("arrow left_arrow");
+  meetupArrow.addClass("arrow right_arrow");
+
+  $("body").append(quizArrow);
+  $("body").append(meetupArrow);
+
+  $(quizArrow).append(quizButton);
+  $(meetupArrow).append(meetupButton);
+  $(quizArrow).append(quizText);
+  $(meetupArrow).append(meetupText);
+
+
+
+}
+
 const AttachCodePen = () => {
 
   const codependEndPoint = "//codepen.io/marcorulesk345/embed/RZvYVZ/?height=300&theme-id=31149&default-tab=html,result&embed-version=2&editable=true";
@@ -111,6 +144,7 @@ $(".submit-button").click((event)=>{
 
   PageRestyle();
   TutorialAndCode(GetInputValues().topic);
+  AttachFeaturedArrows();
 
 
 });
