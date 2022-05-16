@@ -208,6 +208,7 @@ function AppendTab(value){
 
     $(e.target).addClass("active");
     TutorialAndCode(value);
+    LocateMeetups(GetInputValues().topic,GetInputValues().address);
 
   });
 
