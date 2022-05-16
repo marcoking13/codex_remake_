@@ -52,6 +52,7 @@ const TutorialAndCode = (term) => {
     AttachCodePen(term);
 
 
+
   });
 
 
@@ -255,6 +256,7 @@ $(".submit-button").click((event)=>{
   TutorialAndCode(GetInputValues().topic);
   LocateMeetups(GetInputValues().topic,GetInputValues().address);
 
+
 });
 
 
@@ -282,8 +284,9 @@ const LocateMeetups = (topic,zip) =>{
   var lng;
   var eventKey = 'Uy_K5Ae8J84pL3MdPRJKrKMmQ-SmtkYWXZhIta4U';
   var geolocationKey = "AIzaSyCJAQvR6R-V1xdtlCoXg3tvR4tuVTqD1iw";
-  console.log(topic,zip)
+
   $.get({url:"https://maps.googleapis.com/maps/api/geocode/json?address="+zip+"&key="+geolocationKey}).then((res)=>{
+    console.log()
 
   var coords = res.results[0].geometry.location;
   var lat = coords.lat;
@@ -301,7 +304,6 @@ const LocateMeetups = (topic,zip) =>{
   }).done((res)=>{
       console.log("Go");
       console.log(res);
-
     });
 });
 }
