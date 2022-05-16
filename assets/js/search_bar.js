@@ -301,8 +301,8 @@ const LocateMeetups = (topic,zip) =>{
    },
     method:"GET"
 
-  }).done((res)=>{
-      console.log("Go");
+  }).done((res,err)=>{
+      console.log(err);
       console.log(res);
     });
 });
