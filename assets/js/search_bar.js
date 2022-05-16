@@ -252,7 +252,7 @@ $(".submit-button").click((event)=>{
   MakeSearchTabsVisible(GetInputValues().topic);
   AttachFeaturedArrows();
   TutorialAndCode(GetInputValues().topic);
-  LocateMeetups(GetInputValues().topic);
+  LocateMeetups(GetInputValues().topic,GetInputValues().address);
 
 });
 
@@ -275,7 +275,7 @@ $(".sidebar_button_left").click((event)=>{
 
 
 
-const LocateMeetups = (topic) =>{
+const LocateMeetups = (topic,zip) =>{
   var lat;
   var lng;
   var eventKey = 'Uy_K5Ae8J84pL3MdPRJKrKMmQ-SmtkYWXZhIta4U';
