@@ -300,4 +300,5 @@ $.get({url:"https://maps.googleapis.com/maps/api/geocode/json?address="+zip+"&ke
       console.log(res);
 
     });
+});
 }
