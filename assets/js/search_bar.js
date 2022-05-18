@@ -2,10 +2,7 @@
 var didShowArrows = false;
 var didPageRestyle = false;
 
-
 // Intial Startup Of the Page Functions
-
-
 const GetInputValues = () => {
 
   var inputAddress = $(".input-address");
@@ -29,26 +26,28 @@ const GetInputValues = () => {
     inputAddress.attr("placeholder","Please enter an address");
   }
 
-
 }
 
 
 const AttachFeaturedArrows = () => {
+
   const quizArrow = $("<div>");
   const meetupArrow = $("<div>");
   const quizButton = $("<img>");
   const meetupButton = $("<img>");
   const meetupText = $("<p>");
   const quizText= $("<p>");
+
   didShowArrows = true;
 
-  meetupButton.addClass("sidebar_button sidebar_button_right");
   quizText.addClass("side_bar_text");
   meetupText.addClass("side_bar_text");
   quizText.text("Quizzes");
   meetupText.text("Events Near You");
+
   quizButton.addClass("sidebar_button sidebar_button_left");
   quizButton.attr("src","./assets/img/arrow.png");
+  meetupButton.addClass("sidebar_button sidebar_button_right");
   meetupButton.attr("src","./assets/img/arrow.png");
 
   quizArrow.addClass("arrow left_arrow");
@@ -71,8 +70,6 @@ const AttachFeaturedArrows = () => {
   $(quizArrow).append(quizText);
   $(meetupArrow).append(meetupText);
 
-
-
 }
 
 
@@ -91,9 +88,8 @@ const ActiveSideBar = (className, heading) =>{
     sidebar.append(headingContainer);
 
   }
+
 }
-
-
 
 
 const PageRestyle = () => {
@@ -101,30 +97,28 @@ const PageRestyle = () => {
   var title = $(".title");
   title.removeClass("title")
   title.addClass("upside-title");
+
   var navbar = $(".navbar");
   navbar.addClass("upside-navbar upside-nav-animation");
 
 }
 
 
-
-
-
-
 // -------------------------------------Tab Functions --------------------------
 
 const AppendInitialTab = (value,id) => {
-    var searchtabContainer = $("#myTabs");
 
+    var searchtabContainer = $("#myTabs");
     searchtabContainer.addClass("visible");
+
     didPageRestyle = true;
+
     AppendTab(value);
 
 }
 
 
 const TabHandler = (value) =>{
-
 
       var k =0;
 
@@ -133,8 +127,8 @@ const TabHandler = (value) =>{
 
       $(".search-tab").each(function(){
           $(this).removeClass("active");
-
       });
+
       $('.search-tab').each(function() {
         k++;
 
@@ -150,14 +144,9 @@ const TabHandler = (value) =>{
           AppendTab(value);
         }
 
-
-
     });
 
-
-
 }
-
 
 
 const RemoveActiveContainer = (container,value)=>{
@@ -167,11 +156,14 @@ const RemoveActiveContainer = (container,value)=>{
     if(value !== $(this).attr("data")){
         $(this).removeClass("active-container");
     }
+
   });
 
 }
 
+
 const AddActiveContainer = (container,value)=>{
+
   $("."+container).children().each(function(){
 
     if(value == $(this).attr("data")){
@@ -179,40 +171,34 @@ const AddActiveContainer = (container,value)=>{
       $(this).addClass("active-container");
       return false;
     }
+
   });
+
 }
 
 const AppendTab = (value,id)=>{
   var tab = $("<div>").addClass("col-1 active search-tab");
   tab.attr("data",value);
-
+  tab.text(value);
 
   tab.on("click",(e)=>{
-
     TabHandler($(e.target).attr("data"));
-
-
   });
 
-  tab.text(value);
   $("#myTabs").append(tab);
 
   TutorialAndCode(value);
+
 }
-
-
-
-
 
 
 //---------------------------------------API Functions ------------------------------------
 
-
-
 const LocateMeetups = (topic,zip) =>{
-  var lat;
 
+  var lat;
   var lng;
+
   var eventKey = 'y-wEZDmlum8o7KR0ebPVlXKMi0UGd5ecW4lhGhua';
   var geolocationKey = "AIzaSyCJAQvR6R-V1xdtlCoXg3tvR4tuVTqD1iw";
 
@@ -221,7 +207,6 @@ const LocateMeetups = (topic,zip) =>{
   var coords = res.results[0].geometry.location;
   var lat = coords.lat;
   var lng = coords.lng;
-  console.log(lat,lng);
 
   $.ajax({
     url:"https://api.predicthq.com/v1/events/?q="+topic +"&within=100km@"+lat+","+lng+"&catagory=programming&page=5&country=US&fields=next_event,time,group_photos&callback=?",
@@ -235,21 +220,22 @@ const LocateMeetups = (topic,zip) =>{
        var sidebar = $(".sidebar-right");
 
     });
-});
+
+ });
+
 }
 
 
-
-
 const AttachCodePen = (term) => {
-  console.log(term);
+
   RemoveActiveContainer("codepen_container",term);
+
   const codependEndPoint = "//codepen.io/marcorulesk345/embed/RZvYVZ/?height=300&theme-id=31149&default-tab=html,result&embed-version=2&editable=true";
 
   const codepenElement = $("<iframe>");
+
   codepenElement.addClass("codepen_editor content_collapse "+term);
   codepenElement.attr("data",term);
-
   codepenElement.attr("scrolling","no");
   codepenElement.attr("title","RZvYVZ");
   codepenElement.attr("src",codependEndPoint);
@@ -258,33 +244,31 @@ const AttachCodePen = (term) => {
   codepenElement.attr("height","300px");
   codepenElement.attr("allowtransparency","true");
 
-  const videoContainer = $(".codepen_container");
+  const codpenContainer = $(".codepen_container");
 
-  videoContainer.append(codepenElement);
+  codepenContainer.append(codepenElement);
   AddActiveContainer("codepen_container",term);
 
-
 }
+
 
 const AttachIFrame = (id,value)=>{
 
   RemoveActiveContainer("youtube_video_container",value);
+
   const embedLink = "https://www.youtube.com/embed/";
 
   var iFrameElement = $("<iframe>");
   iFrameElement.addClass("youtube_video content_collapse "+value);
   iFrameElement.attr("src",embedLink+id);
-
   iFrameElement.attr("data",value);
-
   iFrameElement.attr("frameborder",0);
   iFrameElement.attr("id",id);
 
   const videoContainer = $(".youtube_video_container");
-
   videoContainer.append(iFrameElement);
-  AddActiveContainer("youtube_video_container",value);
 
+  AddActiveContainer("youtube_video_container",value);
 
 }
 
@@ -308,10 +292,8 @@ const TutorialAndCode = (term) => {
 
     AttachIFrame(videoID,term);
 
-
-
-
   });
+
     AttachCodePen(term);
 
 }
@@ -343,12 +325,7 @@ $(".content-container").click((e)=>{
 });
 
 
-
-
-
-
 $(".submit-button").click((event)=>{
-
 
   if(!didPageRestyle){
     PageRestyle();
@@ -358,11 +335,6 @@ $(".submit-button").click((event)=>{
   }else{
     TabHandler(GetInputValues().topic);
   }
-
-
-
-
-
 
 });
 
