@@ -143,7 +143,7 @@ const TabHandler = (value) =>{
         if(data == value){
           $(this).addClass("active");
           AddActiveContainer("youtube_video_container",value);
-          AddActiveContainer("codepen_contanier",value);
+          AddActiveContainer("codepen_container",value);
           return false;
 
         }else if(k >= $(".search-tab").length){
@@ -173,7 +173,9 @@ const RemoveActiveContainer = (container,value)=>{
 
 const AddActiveContainer = (container,value)=>{
   $("."+container).children().each(function(){
+
     if(value == $(this).attr("data")){
+        console.log($(this));
       $(this).addClass("active-container");
       return false;
     }
@@ -183,8 +185,7 @@ const AddActiveContainer = (container,value)=>{
 const AppendTab = (value,id)=>{
   var tab = $("<div>").addClass("col-1 active search-tab");
   tab.attr("data",value);
-  tab.attr("data-toggle","collapse");
-  tab.attr("data-target","."+value);
+
 
   tab.on("click",(e)=>{
 
@@ -268,7 +269,6 @@ const AttachCodePen = (term) => {
   const videoContainer = $(".codepen_container");
 
   videoContainer.append(codepenElement);
-  console.log(codepenElement);
   AddActiveContainer("codepen_container",term);
 
 
