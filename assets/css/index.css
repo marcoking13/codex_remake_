@@ -284,7 +284,13 @@ font-weight: bold;
 }
 
 
-
+.codepen_editor{
+  opacity:0;
+  position:absolute;
+  top:50%;
+  width:80%;
+  left:10%;
+}
 
 
 

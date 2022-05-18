@@ -248,8 +248,8 @@ const LocateMeetups = (topic,zip) =>{
 
 
 
-const AttachCodePen = (term,id) => {
-
+const AttachCodePen = (term) => {
+  console.log(term);
   RemoveActiveContainer("codepen_container",term);
   const codependEndPoint = "//codepen.io/marcorulesk345/embed/RZvYVZ/?height=300&theme-id=31149&default-tab=html,result&embed-version=2&editable=true";
 
@@ -265,9 +265,10 @@ const AttachCodePen = (term,id) => {
   codepenElement.attr("height","300px");
   codepenElement.attr("allowtransparency","true");
 
-  const videoContainer = $(".codepen_editor");
+  const videoContainer = $(".codepen_container");
 
   videoContainer.append(codepenElement);
+  console.log(codepenElement);
   AddActiveContainer("codepen_container",term);
 
 
@@ -277,12 +278,6 @@ const AttachIFrame = (id,value)=>{
 
   RemoveActiveContainer("youtube_video_container",value);
   const embedLink = "https://www.youtube.com/embed/";
-
-  $(".youtube_video").each(function(){
-      $(this).removeClass("activeScreen");
-
-    });
-
 
   var iFrameElement = $("<iframe>");
   iFrameElement.addClass("youtube_video content_collapse "+value);
@@ -312,22 +307,20 @@ const TutorialAndCode = (term) => {
   $.ajax({
     url:youtubeURL,
   }).then((response)=>{
-    console.log(response);
 
     var videos = response.items;
 
     const randomCounter = Math.floor(Math.random() * videos.length - 1);
 
     videoID = videos[randomCounter].id.videoId;
-    console.log(videoID);
 
     AttachIFrame(videoID,term);
-    AttachCodePen(term,videoID);
+
 
 
 
   });
-
+    AttachCodePen(term);
 
 }
 
@@ -364,7 +357,7 @@ $(".content-container").click((e)=>{
 
 $(".submit-button").click((event)=>{
 
-  console.log(didPageRestyle);
+
   if(!didPageRestyle){
     PageRestyle();
     AppendInitialTab(GetInputValues().topic);
@@ -374,7 +367,7 @@ $(".submit-button").click((event)=>{
     TabHandler(GetInputValues().topic);
   }
 
-    console.log(didPageRestyle);
+
 
 
 
