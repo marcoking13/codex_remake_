@@ -244,7 +244,7 @@ const AttachCodePen = (term) => {
   codepenElement.attr("height","300px");
   codepenElement.attr("allowtransparency","true");
 
-  const codpenContainer = $(".codepen_container");
+  const codepenContainer = $(".codepen_container");
 
   codepenContainer.append(codepenElement);
   AddActiveContainer("codepen_container",term);
