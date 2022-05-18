@@ -189,15 +189,7 @@ const AppendTab = (value,id)=>{
 
   tab.on("click",(e)=>{
 
-    $('.search-tab').each(function() {
-        $(this).removeClass("active");
-
-
-    });
-
-
-    $(e.target).addClass("active");
-
+    TabHandler($(e.target).attr("data"));
 
 
   });
