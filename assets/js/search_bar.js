@@ -176,18 +176,19 @@ const AddActiveContainer = (container,value)=>{
 
 }
 
-const AppendTab = (value,id)=>{
+const AppendTab = (value)=>{
   var tab = $("<div>").addClass("col-1 active search-tab");
   tab.attr("data",value);
   tab.text(value);
+  $("#myTabs").append(tab);
+
+  TutorialAndCode(value);
 
   tab.on("click",(e)=>{
     TabHandler($(e.target).attr("data"));
   });
 
-  $("#myTabs").append(tab);
 
-  TutorialAndCode(value);
 
 }
 
@@ -275,7 +276,7 @@ const AttachIFrame = (id,value)=>{
 
 const TutorialAndCode = (term) => {
 
-
+  console.log(term);
   const api_key = "AIzaSyBB2z7cwnnSHU4tkRfAYtmuMWFTmUJ_Wn0";
   const youtubeEndpoint = "https://www.googleapis.com/youtube/v3/";
   const youtubeURL = youtubeEndpoint + "search?&q=" + term + '%20tutorial%20programming' + "&part=snippet&chart=mostPopular&videoCategoryId=27&type=video&relevanceLanguage=en&maxResults=11&key=" + api_key;
