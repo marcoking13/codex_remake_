@@ -1,0 +1,28 @@
+.width-100{
+  width:100%;
+}
+body{
+  overflow-x:hidden !important;
+}
+.sidebar_button{
+  width:50%;
+  margin-left:25%;
+
+}
+.sidebar_button_right{
+  transform:rotate(180deg);
+
+}
+.left_arrow:hover > p{
+
+font-weight: bold;
+}
+.right_arrow:hover > p{
+
+font-weight: bold;
+}
+.arrow{
+  position:absolute;
+  top:15%;
+  width:5%;
+}
