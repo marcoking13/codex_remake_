@@ -13,15 +13,17 @@
 
 }
 .sidebar{
-  position:fixed;
+  position:absolute;
   top:0;
-  height:100%;
-  opacity:0;
+  opacity:0 !important;
+  height: 1200px;
   z-index:999;
   width:0px;
+  padding-bottom:20%;
   background: #F5F5F5;
 
 }
+
 .sidebar-heading{
   color:white !important;
   font-family: monospace;
@@ -88,4 +90,58 @@
 }
 .sidebar-right{
   right:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.side-text{
+  font-family: monospace;
+  color:black;
+  margin-top:5%;
+  font-size: 12px;
+  text-align:center;
+}
+
+.side-bar-title{
+
+  color:green;
+  font-weight: bold;
+  font-size:16px;
+}
+
+.side-bar-place{
+  width:100%;
+  text-align:center;
+}
+.side-bar-place{
+  width:100%;
+
+  text-align:center;
+}
+.icon-meetup{
+  width:50%;
+  margin-left:10%;
 }

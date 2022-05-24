@@ -11,14 +11,13 @@ $(".submit-button").click((event)=>{
     if(!didPageRestyle){
 
       PageRestyle();
-      AppendInitialTab(GetInputValues().topic);
+      AppendInitialTab(GetInputValues().topic,GetInputValues().address);
       AttachFeaturedArrows();
-      
       didPageRestyle = true;
 
     }
     else{
-      TabHandler(GetInputValues().topic);
+      TabHandler(GetInputValues().topic,GetInputValues().address);
     }
 
   }

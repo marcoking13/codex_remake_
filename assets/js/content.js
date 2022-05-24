@@ -43,34 +43,56 @@ const AttachFeaturedArrows = () => {
 }
 
 
-const LocateMeetups = (topic,zip) =>{
 
-  var lat;
-  var lng;
+//alerts "I like to eat pickles and peanut butter"
 
-  var eventKey = 'y-wEZDmlum8o7KR0ebPVlXKMi0UGd5ecW4lhGhua';
+const GeoLocation = async (zip) =>{
+  console.log(zip);
   var geolocationKey = "AIzaSyCJAQvR6R-V1xdtlCoXg3tvR4tuVTqD1iw";
+  const geolocation = await $.get({url:"https://maps.googleapis.com/maps/api/geocode/json?address="+zip+"&key="+geolocationKey});
+  console.log(geolocation);
+  return geolocation;
+}
 
-  $.get({url:"https://maps.googleapis.com/maps/api/geocode/json?address="+zip+"&key="+geolocationKey}).then((res)=>{
+const LocateMeetups = async (topic,zip) =>{
 
-  var coords = res.results[0].geometry.location;
-  var lat = coords.lat;
-  var lng = coords.lng;
 
-  $.ajax({
-    url:"https://api.predicthq.com/v1/events/?q="+topic +"&within=100km@"+lat+","+lng+"&catagory=programming&page=5&country=US&fields=next_event,time,group_photos&callback=?",
-    headers: {
-       'Authorization':'Bearer '+eventKey,
-       'Accept':'application/json'
-   },
-    method:"GET"
 
-  }).done((res,err)=>{
-       var sidebar = $(".sidebar-right");
+  console.log(topic,zip);
+  var eventKey = 'y-wEZDmlum8o7KR0ebPVlXKMi0UGd5ecW4lhGhua';
+
+
+  var coords = await GeoLocation(zip);
+  console.log(coords);
+  if(coords.results.length <= 0){
+    return null;
+  }else{
+    var geo = coords.results[0].geometry.location;
+
+    var lat = geo.lat;
+    var lng = geo.lng;
+
+    const meetups = await $.ajax({
+      url:"https://api.predicthq.com/v1/events/?q="+topic +"&within=100km@"+lat+","+lng+"&catagory=programming&page=5&country=US&fields=next_event,time,group_photos&callback=?",
+      headers: {
+         'Authorization':'Bearer '+eventKey,
+         'Accept':'application/json'
+     },
+      method:"GET"
 
     });
+    console.log(meetups);
+    if(meetups.results.length < 1 ){
+      return null
+    }else{
 
- });
+    return meetups;
+  }
+
+}
+
+
+
 
 }
 

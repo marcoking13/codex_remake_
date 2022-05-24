@@ -1,4 +1,4 @@
-const AppendInitialTab = (value,id) => {
+const AppendInitialTab = (value,zip) => {
 
     var searchtabContainer = $("#myTabs");
 
@@ -6,7 +6,7 @@ const AppendInitialTab = (value,id) => {
 
     didPageRestyle = true;
 
-    AppendTab(value);
+    AppendTab(value,zip);
 
 }
 
@@ -21,7 +21,7 @@ const AddActiveContent = (value) => {
 }
 
 
-const TabHandler = (value) =>{
+const TabHandler = (value,zip) =>{
 
       var k =0;
 
@@ -47,7 +47,7 @@ const TabHandler = (value) =>{
           return false;
 
         }else if(k >= $(".search-tab").length){
-          AppendTab(value);
+          AppendTab(value,zip);
         }
 
     });
@@ -81,7 +81,7 @@ const AddActive = (container,value,className)=>{
 
 }
 
-const AppendTab = (value)=>{
+const AppendTab = (value,zip)=>{
 
   var tab = $("<div>").addClass("col-1 active-tab search-tab");
 
@@ -90,11 +90,11 @@ const AppendTab = (value)=>{
   $("#myTabs").append(tab);
 
   TutorialAndCode(value);
-  CreateSideBar("left","Quizzes",value);
-  CreateSideBar("right","Meetups",value);
+  console.log(value,zip);
+  CreateSideBar("right","Meetups",value,LocateMeetups,[value,zip]);
 
   tab.on("click",(e)=>{
-    TabHandler($(e.target).attr("data"));
+    TabHandler($(e.target).attr("data"),GetInputValues().address);
   });
 
 }
