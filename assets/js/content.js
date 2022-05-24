@@ -56,8 +56,6 @@ const GeoLocation = async (zip) =>{
 
 const LocateMeetups = async (topic,zip) =>{
 
-
-
   console.log(topic,zip);
   var eventKey = 'y-wEZDmlum8o7KR0ebPVlXKMi0UGd5ecW4lhGhua';
 
@@ -91,21 +89,18 @@ const LocateMeetups = async (topic,zip) =>{
 
 }
 
-
-
-
 }
 
 
 const AttachCodePen = (term) => {
 
-  RemoveActive("codepen_container",term);
+  RemoveActive("codepen_container",term,"active-container");
 
   const codependEndPoint = "//codepen.io/marcorulesk345/embed/RZvYVZ/?height=300&theme-id=31149&default-tab=html,result&embed-version=2&editable=true";
 
   const codepenElement = $("<iframe>");
 
-  codepenElement.addClass("codepen_editor content_collapse "+term);
+  codepenElement.addClass("codepen_editor active-container content_collapse "+term);
   codepenElement.attr("data",term);
   codepenElement.attr("scrolling","no");
   codepenElement.attr("title","RZvYVZ");
@@ -119,19 +114,19 @@ const AttachCodePen = (term) => {
 
   codepenContainer.append(codepenElement);
 
-  AddActive("codepen_container",term);
+  AddActive("codepen_container",term,"active-container");
 
 }
 
 
 const AttachIFrame = (id,value)=>{
 
-  RemoveActive("youtube_video_container",value);
+  RemoveActive("youtube_video_container",value,"active-container");
 
   const embedLink = "https://www.youtube.com/embed/";
   var iFrameElement = $("<iframe>");
 
-  iFrameElement.addClass("youtube_video content_collapse "+value);
+  iFrameElement.addClass("youtube_video active-container content_collapse "+value);
   iFrameElement.attr("src",embedLink+id);
   iFrameElement.attr("data",value);
   iFrameElement.attr("frameborder",0);
@@ -140,7 +135,7 @@ const AttachIFrame = (id,value)=>{
   const videoContainer = $(".youtube_video_container");
   videoContainer.append(iFrameElement);
 
-  AddActive("youtube_video_container",value);
+  AddActive("youtube_video_container",value,"active-container");
 
 }
 
@@ -163,8 +158,9 @@ const TutorialAndCode = (term) => {
 
     AttachIFrame(videoID,term);
 
+      AttachCodePen(term);
   });
 
-    AttachCodePen(term);
+
 
 }
