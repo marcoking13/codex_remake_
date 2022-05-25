@@ -1,5 +1,4 @@
-const CreateSideBar = (side,heading,value,api_function,args)=>{
-  console.log(args);
+const CreateSideBar = (side,heading,value,content_creation,args)=>{
 
   RemoveActiveSidebars(value);
 
@@ -11,7 +10,9 @@ const CreateSideBar = (side,heading,value,api_function,args)=>{
   $(sidebarHeadingContainer).appendTo(sidebarNav);
   $(sidebarHeading).appendTo(sidebarHeadingContainer);
 
-  CreateSidebarContent(api_function,args);
+
+  CreateSidebarContent(content_creation,args);
+
   AddActiveSidebars(value);
 
 }
@@ -26,12 +27,10 @@ const CreateSideBar = (side,heading,value,api_function,args)=>{
 // }
 
 const AddActiveSidebars = (value) =>{
-  AddActive("side-container-left",value,"active-sidebar");
   AddActive("side-container-right",value,"active-sidebar");
 }
 
 const RemoveActiveSidebars = (value) =>{
-  RemoveActive("side-container-left",value,"active-sidebar");
   RemoveActive("side-container-right",value,"active-sidebar");
 }
 
@@ -43,7 +42,6 @@ const ShowSidebar = (className) =>{
   sidebar.addClass("full-opacity");
 
 }
-
 
 
 const CreateSidebarContent = async (functionExecuted,args)=>{
@@ -75,7 +73,7 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
 
      content.map((content_tab)=>{
        console.log(content_tab)
-       var dummyDiv = $("<div>").addClass("side-bar-tab ");
+       var dummyDiv = $("<div>").addClass("side-bar-tab side-bar-tab-right");
        var title = $("<p>").text(content_tab.title).addClass("side-text side-bar-title");
        dummyDiv.append(title);
 
@@ -94,7 +92,7 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
          place_time.append(place);
          dummyDiv.append(place_time);
      }
-       $(".sidebar").append(dummyDiv);
+       $(".sidebar-right").append(dummyDiv);
      });
 
    }else {

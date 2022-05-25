@@ -9,7 +9,7 @@ $(".submit-button").click((event)=>{
   if(GetInputValues().topic && GetInputValues().address){
 
     if(!didPageRestyle){
-
+      CreateQuizSideBar();
       PageRestyle();
       AppendInitialTab(GetInputValues().topic,GetInputValues().address);
       AttachFeaturedArrows();

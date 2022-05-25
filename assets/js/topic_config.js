@@ -1,0 +1,30 @@
+const topics = [
+  {
+    label:"HTML/CSS",
+    value:"HTML_Quiz"
+  },
+  {
+    label:"Javascript",
+    value:"HTML_Quiz"
+  },
+  {
+    label:"jQuery",
+    value:"JQuery_Quiz"
+  },
+  {
+    label:"React",
+    value:"ReactJS_Quiz"
+  },
+  {
+    label:"SQL",
+    value:"MySQL_Quiz"
+  },
+  {
+    label:"Node.js",
+    value:"Nodejs_Quiz"
+  },
+  {
+    label:"Ajax",
+    value:"AJAX_Quiz"
+  }
+];

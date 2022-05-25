@@ -24,6 +24,7 @@ const AttachFeaturedArrows = () => {
   meetupArrow.addClass("arrow right_arrow");
 
   quizArrow.on("click",(e)=>{
+    console.log(e.target);
     ShowSidebar("side-container-left");
   });
 
