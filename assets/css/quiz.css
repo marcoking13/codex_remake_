@@ -1,0 +1,34 @@
+.quiz-heading {
+
+  font-size:30px;
+  color:green !important;
+}
+
+.choice-text {
+
+  font-size:20px;
+  text-align:center;
+  color:white;
+}
+
+.choices-container{
+  background:black;
+  border-radius:5px;
+  padding:2.5%;
+  border:2px solid black;
+}
+.quiz-container{
+  padding-bottom:5%;
+}
+.quiz-row{
+  margin-top:2.5%;
+}
+.choice-text{
+  font-size:22px;
+}
+.choice-container :hover{
+  background:white !important;
+  color:green !important;
+  font-weight:bold;
+  border-color:green !important;
+}

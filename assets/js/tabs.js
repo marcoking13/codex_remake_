@@ -11,6 +11,7 @@ const AppendInitialTab = (value,zip) => {
 }
 
 const RemoveActiveContent = (value) => {
+  $(".quiz-container").empty();
   RemoveActive("codepen_container",value,"active-container");
   RemoveActive("youtube_video_container",value,"active-container");
 }
@@ -57,10 +58,12 @@ const TabHandler = (value,zip) =>{
 
 const RemoveActive = (container,value,className)=>{
 
+
   $("."+container).children().each(function(){
 
     if(value !== $(this).attr("data")){
        $(this).removeClass(className);
+       $(this).addClass("send-to-back");
     }
 
   });
@@ -74,6 +77,7 @@ const AddActive = (container,value,className)=>{
 
     if(value == $(this).attr("data")){
       $(this).addClass(className);
+      $(this).removeClass("send-to-back");
       return false;
     }
 

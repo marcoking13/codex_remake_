@@ -2,66 +2,103 @@ var QuizConfig = {
   HTML_Quiz: {
     0: {
       question: "What does HTML stand for?",
-      answer1: "Home Tool Markup Language",
-      correctAnswer: "Hyper Text Markup Language",
-      answer2: "Hyperlinks and Text Markup Language",
+      choices:[
+        "Home Tool Markup Language",
+        "Hyper Text Markup Language",
+        "Hyper Texture Maker Language",
+        "Home Tool Maker Language"
+      ],
+      correctIndex: 2,
     },
     1:   {
       question: "Choose the correct HTML (<>) element for the largest heading:",
-      answer1: "head",
-      answer2: "h6",
-      correctAnswer: "h1",
-      answer3: "heading",
+      choices:[
+        "Home Tool Markup Language",
+        "Hyper Text Markup Language",
+        "Hyper Texture Maker Language",
+        "Home Tool Maker Language"
+      ],
+      correctIndex: 2
     },
     2: {
       question: "What is the correct HTML (<>) element for inserting a line break?",
-      answer1: "break",
-      answer2: "lb",
-      correctAnswer: "br",
+      choices:[
+        "Home Tool Markup Language",
+        "Hyper Text Markup Language",
+        "Hyper Texture Maker Language",
+        "Home Tool Maker Language"
+      ],
+      correctIndex: 2
     },
     3: {
       question: "Which of these elements are all <table> elements?",
-      answer1: "table,tr,tt",
-      correctAnswer: "table,tr,td",
-      answer2: "table, head, tfoot",
-      answer3: "thead, body, tr",
+      choices:[
+        "Home Tool Markup Language",
+        "Hyper Text Markup Language",
+        "Hyper Texture Maker Language",
+        "Home Tool Maker Language"
+      ],
+      correctIndex: 2
     },
     4:  {
       question: "How can you make a bulleted list?",
-      answer1: "list",
-      answer2: "dl",
-      answer3: "ul",
-      correctAnswer: "ol",
+      choices:[
+        "Home Tool Markup Language",
+        "Hyper Text Markup Language",
+        "Hyper Texture Maker Language",
+        "Home Tool Maker Language"
+      ],
+      correctIndex: 2
     },
     5:  {
       question: "An iframe is used to display a web page within a web page.",
-      correctAnswer: "True",
-      answer1: "There is no such thing as an iframe.",
-      answer2: "false",
+      choices:[
+        "Home Tool Markup Language",
+        "Hyper Text Markup Language",
+        "Hyper Texture Maker Language",
+        "Home Tool Maker Language"
+      ],
+      correctIndex: 2
     },
     6:  {
       question: "HTML comments start with <!-- and end with -->",
-      correctAnswer: "true",
-      answer1: "false",
+      choices:[
+        "Home Tool Markup Language",
+        "Hyper Text Markup Language",
+        "Hyper Texture Maker Language",
+        "Home Tool Maker Language"
+      ],
+      correctIndex: 2
     },
     7:  {
       question: "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
-      answer1: "longdesc",
-      answer2: "title",
-      correctAnswer: "alt",
-      answer3: "src",
+      choices:[
+        "Home Tool Markup Language",
+        "Hyper Text Markup Language",
+        "Hyper Texture Maker Language",
+        "Home Tool Maker Language"
+      ],
+      correctIndex: 2
     },
     8:  {
       question: "Which HTML (<>) element is used to specify a footer for a document or section?",
-      answer1: "section",
-      correctAnswer: "footer",
-      answer2: "bottom",
+      choices:[
+        "Home Tool Markup Language",
+        "Hyper Text Markup Language",
+        "Hyper Texture Maker Language",
+        "Home Tool Maker Language"
+      ],
+      correctIndex: 2
     },
     9:  {
       question: "Which HTML element defines navigation links?",
-      answer1: "navigation",
-      answer2: "navigate",
-      correctAnswer: "nav",
+      choices:[
+        "Home Tool Markup Language",
+        "Hyper Text Markup Language",
+        "Hyper Texture Maker Language",
+        "Home Tool Maker Language"
+      ],
+      correctIndex: 2
       }
     },
     Javascript_Quiz: {

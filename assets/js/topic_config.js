@@ -5,7 +5,7 @@ const topics = [
   },
   {
     label:"Javascript",
-    value:"HTML_Quiz"
+    value:"Javascript_Quiz"
   },
   {
     label:"jQuery",
@@ -21,7 +21,7 @@ const topics = [
   },
   {
     label:"Node.js",
-    value:"Nodejs_Quiz"
+    value:"NodeJs_Quiz"
   },
   {
     label:"Ajax",

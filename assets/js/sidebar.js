@@ -46,7 +46,6 @@ const ShowSidebar = (className) =>{
 
 const CreateSidebarContent = async (functionExecuted,args)=>{
 
-   console.log(args);
    var results = await functionExecuted(args[0],args[1]);
    if(results){
 
@@ -56,7 +55,6 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
 
      for(var i = 0; i <results.results.length; i++){
         var splitDescription = results.results[i].description.slice(0, 200);
-        console.log(splitDescription)
 
 
        content.push(
@@ -72,7 +70,6 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
      }
 
      content.map((content_tab)=>{
-       console.log(content_tab)
        var dummyDiv = $("<div>").addClass("side-bar-tab side-bar-tab-right");
        var title = $("<p>").text(content_tab.title).addClass("side-text side-bar-title");
        dummyDiv.append(title);
