@@ -9,6 +9,61 @@ body{
   margin-left:25%;
 
 }
+.invisible{
+  visibility: hidden !important;
+}
+.visible{
+  visibility: visible !important;
+}
+.margin-top-1{
+  margin-top:1%;
+}
+.margin-top-2_5{
+  margin-top:2.5%;
+}
+.margin-left-10{
+  margin-left:10%;
+}
+.inactive-container{
+opacity:0 !important;
+
+}
+
+.appear{
+  opacity:1;
+}
+.disappear{
+  opacity:0;
+}
+
+.visible{
+  visibility: visible !important;
+}
+.active-container{
+  opacity:1 !important;
+}
+.black-geometry{
+  background:url("./../img/dark_geometric.png");
+}
+.margin-left-5{
+  margin-left:5%;
+}
+.no-opacity{
+
+  opacity:0 !important;
+}
+.full-opacity{
+
+  opacity:1 !important;
+  animation: active-sidebar .5s 1 ease-in;
+  width:200px !important;
+}
+
+body{
+  padding-bottom:5%;
+}
+
+
 .send-to-back{
   z-index:-999;
   position:absolute;

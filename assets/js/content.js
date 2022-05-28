@@ -25,11 +25,13 @@ const AttachFeaturedArrows = () => {
 
   quizArrow.on("click",(e)=>{
     console.log(e.target);
-    ShowSidebar("side-container-left");
+    isQuizTabOpen = true;
+    ShowSidebar("left");
   });
 
   meetupArrow.on("click",(e)=>{
-    ShowSidebar("side-container-right");
+    isMeetupTabOpen = true;
+    ShowSidebar("right");
   });
 
 
@@ -48,24 +50,26 @@ const AttachFeaturedArrows = () => {
 //alerts "I like to eat pickles and peanut butter"
 
 const GeoLocation = async (zip) =>{
-  console.log(zip);
+
   var geolocationKey = "AIzaSyCJAQvR6R-V1xdtlCoXg3tvR4tuVTqD1iw";
   const geolocation = await $.get({url:"https://maps.googleapis.com/maps/api/geocode/json?address="+zip+"&key="+geolocationKey});
-  console.log(geolocation);
+
   return geolocation;
+
 }
 
 const LocateMeetups = async (topic,zip) =>{
 
-  console.log(topic,zip);
   var eventKey = 'y-wEZDmlum8o7KR0ebPVlXKMi0UGd5ecW4lhGhua';
 
-
   var coords = await GeoLocation(zip);
-  console.log(coords);
+
   if(coords.results.length <= 0){
+
     return null;
+
   }else{
+
     var geo = coords.results[0].geometry.location;
 
     var lat = geo.lat;
@@ -78,30 +82,30 @@ const LocateMeetups = async (topic,zip) =>{
          'Accept':'application/json'
      },
       method:"GET"
-
     });
-    console.log(meetups);
+
     if(meetups.results.length < 1 ){
       return null
     }else{
 
-    return meetups;
-  }
+      return meetups;
 
-}
+    }
+
+  }
 
 }
 
 
 const AttachCodePen = (term) => {
 
-  RemoveActive("codepen_container",term,"active-container");
+  RemoveActive("codepen_container",term);
 
   const codependEndPoint = "//codepen.io/marcorulesk345/embed/RZvYVZ/?height=300&theme-id=31149&default-tab=html,result&embed-version=2&editable=true";
 
   const codepenElement = $("<iframe>");
 
-  codepenElement.addClass("codepen_editor active-container content_collapse "+term);
+  codepenElement.addClass("codepen_editor content_collapse "+term);
   codepenElement.attr("data",term);
   codepenElement.attr("scrolling","no");
   codepenElement.attr("title","RZvYVZ");
@@ -115,19 +119,19 @@ const AttachCodePen = (term) => {
 
   codepenContainer.append(codepenElement);
 
-  AddActive("codepen_container",term,"active-container");
+  AddActive("codepen_container",term,"active_content_codepen");
 
 }
 
 
 const AttachIFrame = (id,value)=>{
 
-  RemoveActive("youtube_video_container",value,"active-container");
+  RemoveActive("youtube_video_container",value);
 
   const embedLink = "https://www.youtube.com/embed/";
   var iFrameElement = $("<iframe>");
 
-  iFrameElement.addClass("youtube_video active-container content_collapse "+value);
+  iFrameElement.addClass("youtube_video content_collapse "+value);
   iFrameElement.attr("src",embedLink+id);
   iFrameElement.attr("data",value);
   iFrameElement.attr("frameborder",0);
@@ -136,14 +140,14 @@ const AttachIFrame = (id,value)=>{
   const videoContainer = $(".youtube_video_container");
   videoContainer.append(iFrameElement);
 
-  AddActive("youtube_video_container",value,"active-container");
+  AddActive("youtube_video_container",value);
 
 }
 
 
 const TutorialAndCode = (term) => {
 
-  const api_key = "AIzaSyBB2z7cwnnSHU4tkRfAYtmuMWFTmUJ_Wn0";
+  const api_key = "AIzaSyDWVGrLs5wYNVBqCvlqM2IBmkr9Xs7ZYVs";
   const youtubeEndpoint = "https://www.googleapis.com/youtube/v3/";
   const youtubeURL = youtubeEndpoint + "search?&q=" + term + '%20tutorial%20programming' + "&part=snippet&chart=mostPopular&videoCategoryId=27&type=video&relevanceLanguage=en&maxResults=11&key=" + api_key;
 
@@ -159,9 +163,8 @@ const TutorialAndCode = (term) => {
 
     AttachIFrame(videoID,term);
 
-      AttachCodePen(term);
+    AttachCodePen(term);
+
   });
-
-
 
 }

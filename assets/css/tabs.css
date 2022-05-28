@@ -1,0 +1,27 @@
+@keyframes tab_container_entrance {
+  0%{
+    top:0%;
+
+  }
+  100%{
+    top:
+  }
+}
+
+@keyframes tab_entrance {
+  0%{
+    height:0%;
+
+  }
+  100%{
+    height:
+  }
+}
+
+
+.tab_container_animation {
+  transition: tab_container_entrance .5s ease-in 1;
+}
+.tab_animation {
+  transition: tab_entrance .5s ease-in 1;
+}

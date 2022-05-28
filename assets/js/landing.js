@@ -1,6 +1,5 @@
 var didPageRestyle = false;
 
-// Intial Startup Of the Page Functions
 const GetInputValues = () => {
 
   var inputAddress = $(".input-address");
@@ -14,21 +13,23 @@ const GetInputValues = () => {
     }
 
     return inputVal;
+
   }
 
   if(!inputTopic.val()){
+
     inputTopic.addClass("wrong_border");
     inputTopic.attr("placeholder","Please enter an address");
 
   }
   if(!inputAddress.val()){
+
     inputAddress.addClass("wrong_border");
     inputAddress.attr("placeholder","Please enter an address");
+
   }
 
 }
-
-
 
 const PageRestyle = () => {
 

@@ -14,102 +14,79 @@
             <link href = "./assets/css/quiz.css" rel = "stylesheet" type = "text/css"/>
   </head>
   <body class="black-geometry">
-      <h1 class="title">Codex</h1>
-
-
+    >
+    <h1 class="title">Codex</h1>
+    <form>
     <nav class="navbar" style="padding:0">
-    <div class="container-fluid search-container width-100">
-
-
-          <br />
-    <div class="row">
-
-      <div class="col-1 margin-left-5">
-          <img src = "./assets/img/logo.png" class="logo width-100"/>
-      </div>
+      <div class="container-fluid search-container width-100">
+      <br />
+      <div class="row search-row">
+        <div class="col-1 margin-left-5">
+            <img src = "./assets/img/logo.png" class="logo width-100"/>
+        </div>
 
         <div class="col-10">
             <div class="row form-group">
 
-                <div class="col-6">
-                    <input class="codex-input input-topic form-control width-100" placeholder = "Enter Topic" value = "j"/>
-                  </div>
-
-                  <div class="col-3">
-                    <input class="codex-input input-address form-control width-100" placeholder = " Enter Address" value = "scottsdale"/>
-                 </div>
-                 <div class="col-2">
-                  <button class="btn submit-button width-100">Submit</button>
-                </div>
+              <div class="col-6">
+                  <input class="codex-input input-topic form-control width-100" placeholder = "Enter Topic" value = "j"/>
+              </div>
+              <div class="col-3">
+                <input class="codex-input input-address form-control width-100" placeholder = " Enter Address" value = "scottsdale"/>
+             </div>
+             <div class="col-2">
+                <button type="submit" class="btn submit-button width-100">Submit</button>
             </div>
 
+          </div>
         </div>
+     </div>
+   </div>
+  </nav>
+</form>
+
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <div class="row tabs-container" id="myTabs"></div>
     </div>
-
-</nav>
-
-
+  </div>
+</div>
 
 
-<div class="content-container">
-
-  <div class="container-fluid">
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
-
-
-                <div class="row tabs-container" id="myTabs">
+  <div class="content-container">
 
 
 
-                </div>
 
+      <div class="youtube_container container-fluid">
+        <div class="row">
+          <div class = "col-2"></div>
+          <div class="col-8 youtube_video_container">  </div>
         </div>
-    </div>
-  </div>
-
-
-
-<div class="youtube_container container-fluid">
-  <div class="row">
-    <div class = "col-2"></div>
-    <div class="col-8 youtube_video_container">
-
-
-
       </div>
-    </div>
 
-
-  </div>
-  <div class="row">
-    <div class = "col-2"></div>
-    <div class="col-8 codepen_container">
-
-
-
+      <div class="row">
+        <div class = "col-2"></div>
+        <div class="col-8 codepen_container"></div>
       </div>
-    </div>
+
+
+      <div class="quiz-container"></div>
 
 
   </div>
-</div>
 
-<div class="quiz-container">
-
-</div>
+  <div class="sidebar-container side-container-left left" data = "sidebar"></div>
+  <div class="sidebar-container  side-container-right right" data = "sidebar"></div>
 
 
 
-  <div class="sidebar-container no-opacity side-container-left left">
 
-  </div>
-  <div class="sidebar-container no-opacity side-container-right right">
 
-  </div>
 
-</div>
+
 
 
 

@@ -9,22 +9,11 @@
   color: white !important;
 }
 
-.margin-left-10{
-  margin-left:10%;
-}
-.margin-left-5{
-  margin-left:5%;
-}
 
-
-.black-geometry{
-  background:url("./../img/dark_geometric.png");
-}
 
 .youtube_container{
   width:100%;
   height:100%;
-  margin-top:1%;
 }
 
 .codepen_editor{
@@ -36,19 +25,12 @@
 .codepen_container {
   width:100%;
 }
-.inactive-container{
-opacity:0 !important;
 
-}
-.active-container{
-  opacity:1 !important;
-}
 .youtube_video{
   padding:0;
-  opacity: 0;
-  height:500px;
   position:absolute;
-  top:30%;
+  opacity:0;
+  top:25%;
   margin:0;
   left:10%;
   width:80% !important;
@@ -74,12 +56,11 @@ opacity:0 !important;
 
 
 .codepen_editor{
-  opacity:0;
   position:absolute;
-  top:90%;
+  top:85%;
+  z-index:99;
+  opacity:0;
   width:80%;
-  left:10%;
-
   border-top:1px solid green;
 }
 
@@ -94,9 +75,7 @@ opacity:0 !important;
   visibility: hidden;
   margin-top:15%;
 }
-.visible{
-  visibility: visible !important;
-}
+
 #myTabs{
   border-bottom:1px solid white;
 
@@ -106,9 +85,91 @@ opacity:0 !important;
     width:40px;
 }
 
-.appear{
+
+
+/* Animations */
+
+@keyframes youtube_appears {
+  0%{
+    opacity:0;
+    height:0;
+  }
+  100%{
+    height:500px;
+    opacity:1;
+  }
+}
+
+
+.active-container{
   opacity:1;
 }
-.disappear{
+
+
+@keyframes youtube_disappears {
+  0%{
+    opacity:1;
+    height:500px
+  }
+  100%{
+    opacity:0;
+    height:0px;
+  }
+}
+
+
+
+@keyframes codepen_appears {
+  0%{
+    left:105%;
+    opacity:0;
+  }
+  100%{
+    left:10%;
+    opacity:1
+  }
+}
+
+
+
+@keyframes codepen_disappears {
+  0%{
+    left:10%;
+    opacity:1;
+  }
+  100%{
+    left:105%;
+    opacity:0
+  }
+}
+
+
+
+.inactive_content_youtube {
+  transition:youtube_disappears .5 1 ease-out;
   opacity:0;
+  height:0px;
+    z-index:-999;
+}
+
+.active_content_youtube {
+  transition:youtube_appears .5 1 ease-in;
+  opacity:1;
+  height:500px;
+    z-index:999;
+}
+
+.inactive_content_codepen{
+  transition:codepen_disappears .5 1 ease-out;
+  opacity:0 !important;
+  z-index:-999;
+  left:105%;
+}
+
+.active_content_codepen {
+  transition:codepen_appears .5 1 ease-in;
+  opacity:1;
+    z-index:999;
+  left:10%;
+
 }

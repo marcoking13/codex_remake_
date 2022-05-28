@@ -3,14 +3,18 @@
 .upside-title{
   animation:title_fade .5s 1 ease-in;
   position:absolute;
-  top:4%;
+  top:2%;
   left:2%;
-  font-size:25px;
+  font-size:40px;
   z-index:99;
   animation-delay: 2;
   font-family:cursive;
   color:#7ED957;
 
+}
+
+.search-row{
+  margin-top:1.5%;
 }
 
 .navbar {
