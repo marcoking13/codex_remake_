@@ -3,8 +3,6 @@ $(".content-container").click((e)=>{
 
     HideSidebar("right");
     HideSidebar("left");
-    isMeetupTabOpen = false;
-    isQuizTabOpen = false;
 
 });
 
@@ -22,6 +20,7 @@ $(".submit-button").click((event)=>{
 
       AppendInitialTab(GetInputValues().topic,GetInputValues().address);
       AttachFeaturedArrows();
+      
       didPageRestyle = true;
 
     }

@@ -3,14 +3,10 @@ var isQuizTabOpen = false;
 var isMeetupTabOpen = false;
 
 
-
 const CreateSideBar = (side,heading,value,content_creation,args)=>{
 
-
-  RemoveActiveSidebars(value);
+  RemoveActive("side-container-right",value);
   var active = isMeetupTabOpen ? "active-sidebar" : "inactive-sidebar";
-
-
   var sidebarNav = $("<nav>").addClass("sidebar sidebar-"+side + " "+active).attr("data",value);
   var sidebarHeadingContainer = $("<div>").addClass("sidebar-container-heading");
   var sidebarHeading = $("<p>").addClass("sidebar-heading").text(heading);
@@ -20,31 +16,6 @@ const CreateSideBar = (side,heading,value,content_creation,args)=>{
   $(sidebarHeading).appendTo(sidebarHeadingContainer);
 
   CreateSidebarContent(content_creation,args);
-
-  
-
-
-}
-
-const AddActiveSidebars = (value) =>{
-
-  AddActive("side-container-right",value);
-
-}
-
-const RemoveActiveSidebars = (value) =>{
-
-  RemoveActive("side-container-right",value);
-
-}
-
-const ShowSidebar = (side) =>{
-
-  var sideNav = $(".sidebar-"+side);
-
-  sideNav.removeClass("inactive-sidebar");
-  sideNav.addClass("active-sidebar");
-
 
 }
 
@@ -62,12 +33,14 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
 
          content.push(
            {
+
              title:results.results[i].title,
              description:splitDescription,
              icon:"",
              link:results.results[i].id,
              time:results.results[i].start + " To "+results.results[i].end,
              place:results.results[i].timezone,
+
            });
 
        }
@@ -106,7 +79,7 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
 
      });
 
-   }else {
+   }else{
 
     var noResults = $("<div>").addClass("side-bar-tab side-bar-tab-right");
 
@@ -117,10 +90,21 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
 }
 
 
+const ShowSidebar = (side) =>{
+
+  var sideNav = $(".sidebar-"+side);
+
+  sideNav.removeClass("inactive-sidebar");
+  sideNav.addClass("active-sidebar");
+
+}
+
 
 const HideSidebar = (side) =>{
-  var sidebar= $(".sidebar-"+side);
+
+    var sidebar= $(".sidebar-"+side);
 
     sidebar.removeClass("active-sidebar");
     sidebar.addClass("inactive-sidebar");
+
 }

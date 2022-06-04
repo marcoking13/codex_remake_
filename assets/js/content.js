@@ -1,57 +1,53 @@
 
-const AttachFeaturedArrows = () => {
 
-  const quizArrow = $("<div>");
-  const meetupArrow = $("<div>");
-  const quizButton = $("<img>");
-  const meetupButton = $("<img>");
-  const meetupText = $("<p>");
-  const quizText= $("<p>");
+const AttachFeaturedArrows = () =>{
 
-  quizText.addClass("side_bar_text");
-  meetupText.addClass("side_bar_text");
-
-  quizText.text("Quizzes");
-  meetupText.text("Events Near You");
-
-  quizButton.addClass("sidebar_button sidebar_button_left");
-  quizButton.attr("src","./assets/img/arrow.png");
-
-  meetupButton.addClass("sidebar_button sidebar_button_right");
-  meetupButton.attr("src","./assets/img/arrow.png");
-
-  quizArrow.addClass("arrow left_arrow");
-  meetupArrow.addClass("arrow right_arrow");
-
-  quizArrow.on("click",(e)=>{
-    console.log(e.target);
-    isQuizTabOpen = true;
-    ShowSidebar("left");
-  });
-
-  meetupArrow.on("click",(e)=>{
-    isMeetupTabOpen = true;
-    ShowSidebar("right");
-  });
-
-
-  $("body").append(quizArrow);
-  $("body").append(meetupArrow);
-
-  $(quizArrow).append(quizButton);
-  $(meetupArrow).append(meetupButton);
-  $(quizArrow).append(quizText);
-  $(meetupArrow).append(meetupText);
+   CreateArrow("left",isQuizTabOpen,"Quizzes");
+   CreateArrow("right",isMeetupTabOpen,"Meetups");
 
 }
 
 
+const CreateArrow = (side,isQuizArrow,text) => {
 
-//alerts "I like to eat pickles and peanut butter"
+    const arrowContainer =  $("<div>");
+    const arrowButton =  $("<img>");
+    const arrowText = $("<p>");
+
+    arrowText.addClass("side_bar_text");
+    arrowText.text(text);
+    arrowContainer.addClass(`arrow ${side}_arrow`);
+    arrowButton.addClass(`sidebar_button sidebar_button_${side}`);
+    arrowButton.attr("src","./assets/img/arrow.png");
+
+    $("body").append(arrowContainer);
+
+    $(arrowContainer).append(arrowButton);
+    $(arrowContainer).append(arrowText);
+
+    arrowContainer.on("click",(e)=>{
+
+      ShowSidebar(side);
+
+      if(isQuizArrow){
+
+        isQuizTabOpen = true;
+
+      }else{
+
+        isMeetupTabOpen = true;
+
+      }
+
+    });
+
+  }
+
 
 const GeoLocation = async (zip) =>{
 
   var geolocationKey = "AIzaSyCJAQvR6R-V1xdtlCoXg3tvR4tuVTqD1iw";
+
   const geolocation = await $.get({url:"https://maps.googleapis.com/maps/api/geocode/json?address="+zip+"&key="+geolocationKey});
 
   return geolocation;
@@ -76,16 +72,20 @@ const LocateMeetups = async (topic,zip) =>{
     var lng = geo.lng;
 
     const meetups = await $.ajax({
+
       url:"https://api.predicthq.com/v1/events/?q="+topic +"&within=100km@"+lat+","+lng+"&catagory=programming&page=5&country=US&fields=next_event,time,group_photos&callback=?",
       headers: {
          'Authorization':'Bearer '+eventKey,
          'Accept':'application/json'
      },
       method:"GET"
+      
     });
 
     if(meetups.results.length < 1 ){
-      return null
+
+      return null;
+
     }else{
 
       return meetups;
@@ -129,6 +129,7 @@ const AttachIFrame = (id,value)=>{
   RemoveActive("youtube_video_container",value);
 
   const embedLink = "https://www.youtube.com/embed/";
+
   var iFrameElement = $("<iframe>");
 
   iFrameElement.addClass("youtube_video content_collapse "+value);
@@ -138,6 +139,7 @@ const AttachIFrame = (id,value)=>{
   iFrameElement.attr("id",id);
 
   const videoContainer = $(".youtube_video_container");
+
   videoContainer.append(iFrameElement);
 
   AddActive("youtube_video_container",value);
@@ -164,6 +166,52 @@ const TutorialAndCode = (term) => {
     AttachIFrame(videoID,term);
 
     AttachCodePen(term);
+
+  });
+
+}
+
+
+const RemoveActiveContent = (value) => {
+
+  $(".quiz-container").empty();
+
+  RemoveActive("codepen_container",value,"active-container");
+  RemoveActive("youtube_video_container",value,"active-container");
+
+}
+
+const AddActiveContent = (value) => {
+
+  AddActive("codepen_container",value,"active-container");
+  AddActive("youtube_video_container",value,"active-container");
+
+}
+
+const DeleteContent = (value) => {
+
+  var tabContainer = $(".tabs-container");
+  var youtubeContainer = $(".youtube_video_container");
+  var codepenContainer = $(".codepen_container");
+  var meetupSidebar = $(".side-container-right");
+
+  DeleteElementLoop(tabContainer,value);
+  DeleteElementLoop(youtubeContainer,value);
+  DeleteElementLoop(codepenContainer,value);
+  DeleteElementLoop(meetupSidebar,value);
+
+}
+
+const StopAllIFrames = () => {
+
+  $(".youtube_video_container").children().each(function() {
+
+    if($(this).prop("nodeName") == "IFRAME"){
+
+        var src= $(this).attr('src');
+        $(this).attr('src',src);
+
+      }
 
   });
 
