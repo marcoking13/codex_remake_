@@ -56,7 +56,7 @@ const GeoLocation = async (zip) =>{
 
 const LocateMeetups = async (topic,zip) =>{
 
-  var eventKey = 'y-wEZDmlum8o7KR0ebPVlXKMi0UGd5ecW4lhGhua';
+  var eventKey = 'segqeo3y0quEC2OUIHHT1oUTEay_8AFgCBrgNyKI';
 
   var coords = await GeoLocation(zip);
 
@@ -79,7 +79,7 @@ const LocateMeetups = async (topic,zip) =>{
          'Accept':'application/json'
      },
       method:"GET"
-      
+
     });
 
     if(meetups.results.length < 1 ){
@@ -149,7 +149,7 @@ const AttachIFrame = (id,value)=>{
 
 const TutorialAndCode = (term) => {
 
-  const api_key = "AIzaSyDWVGrLs5wYNVBqCvlqM2IBmkr9Xs7ZYVs";
+  const api_key = "AIzaSyDT3CvnaTo7AnBgi4XRNHPrf0_hDTrF0EE";
   const youtubeEndpoint = "https://www.googleapis.com/youtube/v3/";
   const youtubeURL = youtubeEndpoint + "search?&q=" + term + '%20tutorial%20programming' + "&part=snippet&chart=mostPopular&videoCategoryId=27&type=video&relevanceLanguage=en&maxResults=11&key=" + api_key;
 

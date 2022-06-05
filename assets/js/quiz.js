@@ -33,7 +33,7 @@ const CreateQuiz = (value) => {
 
   RemoveActiveContent();
   StopAllIFrames();
-
+  console.log(QuizConfig);
   var quiz = QuizConfig[value];
 
   var quizHeading = $("<h1>").text(value).addClass("quiz-title")
