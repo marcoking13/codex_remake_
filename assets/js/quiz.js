@@ -1,4 +1,3 @@
-
 var selectedAnswers = [];
 var score = 0;
 var correctAnswers = [];
@@ -8,6 +7,7 @@ const CreateQuizTabs = (container) => {
   for(var i = 0; i < topics.length;i++){
 
     var sidebarTab = $("<div>").addClass("side-bar-tab side-bar-tab-right");
+
     sidebarTab.attr("data",topics[i].value);
 
     sidebarTab.on("click",(e)=>{
@@ -21,6 +21,7 @@ const CreateQuizTabs = (container) => {
     });
 
     var title = $("<p>").text(topics[i].label).addClass("side-text side-bar-title").attr("data",topics[i].value);
+
     sidebarTab.append(title);
 
     $("."+container).append(sidebarTab);
@@ -29,22 +30,23 @@ const CreateQuizTabs = (container) => {
 
 }
 
-const CreateQuiz = (value) => {
 
+const Cleanup = ()=>{
   RemoveActiveContent();
   StopAllIFrames();
-  console.log(QuizConfig);
-  var quiz = QuizConfig[value];
+  RemoveAllActiveTabs();
+}
 
-  var quizHeading = $("<h1>").text(value).addClass("quiz-title")
-  quizHeading.appendTo(".quiz-container");
-
+const CreateQuestions = (quiz) =>{
   for(var i = 0; i <=  9; i++){
 
     CreateQuestion(quiz[i],i);
 
   }
+}
 
+
+const CreateSubmit = (quiz,value) =>{
   var submit = $("<button>").addClass("quiz_submit_button btn btn-secondary width-50 margin-left-25").text("Submit Here");
 
   submit.appendTo(".quiz-container");
@@ -54,7 +56,24 @@ const CreateQuiz = (value) => {
       SubmitQuiz(quiz,value);
 
   });
+}
 
+
+const CreateQuizHeading = () =>{
+
+}
+
+const CreateQuiz = (value) => {
+
+  Cleanup();
+
+  var quizHeading = $("<h1>").text(value).addClass("quiz-title").appendTo(".quiz-container");
+  
+  var quiz = QuizConfig[value];
+
+  CreateQuestions(quiz);
+
+  CreateSubmit(quiz,value);
 
 }
 
@@ -65,20 +84,18 @@ const CollectUserAnswers = (div) => {
    $(div).children().each(function(){
 
       index++;
+
       var choice = $(this);
 
       if($(this).hasClass("active_choice")){
 
-
         selectedAnswers.push({answer:choice.attr("index"),element:$(this)});
-
 
         return false;
 
       }else if(index >= $(div).children().length){
 
         selectedAnswers.push({answer:null,element:$(this)});
-        console.log(choice.attr("index"))
 
         return false;
 
@@ -99,8 +116,11 @@ const IterateToChoicesElements = (div) => {
       quizContent.children().each(function(){
 
         if($(this).hasClass("choices-container")){
+
             CollectUserAnswers(this);
+
         }
+
 
     });
   }
@@ -149,6 +169,7 @@ const CompareUserandKeyAnswers = () => {
     if(correctAnswers[i] == selectedAnswers[i].answer){
 
       selectedAnswers[i].element.addClass("correct");
+
       score++;
 
     }else{
@@ -189,8 +210,11 @@ const DisplayScore = (score,value) => {
   });
 
   scoreBox.text(score + "/"+10);
+
   scoreContainer.appendTo(".quiz-container");
+
   scoreBox.appendTo(scoreContainer);
+
   resetButton.appendTo(scoreBox);
 
 }
@@ -198,18 +222,23 @@ const DisplayScore = (score,value) => {
 const CreateQuestion = (questionObj,index) => {
 
   var row = $("<div>").addClass("row quiz-row quiz-row-"+index)
+
   row.appendTo(".quiz-container");
 
   var colSpace = $("<div>").addClass("col-2");
+
   colSpace.appendTo(row);
 
   var content = $("<div>").addClass("col-8 quiz-content quiz-content-"+index)
+
   content.appendTo(row);
 
   var question = $("<h3>").text(questionObj.question).addClass("quiz-heading");
+
   question.appendTo(content);
 
   var choiceContainer = $("<div>").addClass("choices-container choices-"+index)
+
   choiceContainer.appendTo(".quiz-content-"+index);
 
   for(var i = 0; i < questionObj.choices.length; i++){
@@ -223,6 +252,7 @@ const CreateQuestion = (questionObj,index) => {
 const CreateChoices = (choice,index,choiceContainer) => {
 
   var choices = $("<div>").addClass("choice-container choice"+index).attr("index",index)
+
   choices.appendTo(choiceContainer);
 
   choices.on("click",(e)=>{
@@ -238,6 +268,7 @@ const CreateChoices = (choice,index,choiceContainer) => {
   });
 
   var choiceText = $("<p>").addClass("choice-text").text(choice).data("index",index)
+
   choiceText.appendTo(choices);
 
 }
@@ -249,10 +280,13 @@ const CreateQuizSideBar = () => {
   var sidebarNav = $("<nav>").addClass("sidebar sidebar-left "+active);
 
   var sidebarHeadingContainer = $("<div>").addClass("sidebar-container-heading");
+
   var sidebarHeading = $("<p>").addClass("sidebar-heading").text("Quizzes");
 
   $(sidebarNav).appendTo(".side-container-left");
+
   $(sidebarHeadingContainer).appendTo(sidebarNav);
+
   $(sidebarHeading).appendTo(sidebarHeadingContainer);
 
   CreateQuizTabs("sidebar-left");

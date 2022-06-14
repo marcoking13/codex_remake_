@@ -24,61 +24,6 @@
 
 }
 
-@keyframes checkRotation {
-  0%{
-    transform:rotate(0deg);
-  }
-  50%{
-    transform:rotate(20deg);
-  }
-  100%{
-    transform:rotate(0deg);
-  }
-}
-
-@keyframes submitButtonAni {
-  from {
-    background:#1F1F1F ;
-    color:white;
-    border-color:#1F1F1F ;
-  }
-  to{
-    background:white ;
-    color:#1F1F1F;
-    border-color:white ;
-  }
-}
-
-
-@keyframes upside-nav-animation{
-  from{
-    position:absolute;
-    top:40%;
-
-  }
-
-  to{
-    top:0%;
-    background:black;
-  }
-}
-
-
-@keyframes title_fade{
-  from{
-    opacity:0%;
-
-  }
-
-  to{
-    opacity:100%;
-  }
-}
-
-
-
-
-
 .codex-input:focus{
   outline:none !important;
   border-color:green;

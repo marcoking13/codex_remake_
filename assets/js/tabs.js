@@ -13,8 +13,20 @@ const AppendInitialTab = (value,zip) => {
 const ReturnActiveTabData = () => {
   $(".tabs-container").each(function(){
       if($(this).hasClass("active-tab")){
+
         return $(this).attr("data");
+
       }
+
+  });
+
+}
+
+const RemoveAllActiveTabs = () =>{
+  $(".search-tab").each(function(){
+
+      $(this).removeClass("active-tab");
+
   });
 }
 
@@ -25,10 +37,7 @@ const TabHandler = (value,zip) =>{
 
       RemoveActiveContent(value);
       RemoveActive("side-container-right",value);
-
-      $(".search-tab").each(function(){
-          $(this).removeClass("active-tab");
-      });
+      RemoveAllActiveTabs();
 
       $('.search-tab').each(function() {
         k++;
@@ -38,19 +47,22 @@ const TabHandler = (value,zip) =>{
         if(data == value){
 
           $(this).addClass("active-tab");
+
           AddActiveContent(value);
           AddActive("side-container-right",value);
-          if(isMeetupTabOpen){
 
+          if(isMeetupTabOpen){
             ShowSidebar("right");
           }else{
-
             HideSidebar("right");
           }
+
           return false;
 
         }else if(k >= $(".search-tab").length){
+
           AppendTab(value,zip);
+
         }
 
     });
@@ -58,10 +70,10 @@ const TabHandler = (value,zip) =>{
 }
 
 const CheckTabOverload = () => {
-
+  var tabMax = 12;
   var tabsArr = $(".tabs-container").children();
 
-  if(tabsArr.length >= 10){
+  if(tabsArr.length > tabMax){
 
     var warning = confirm("You have too many tabs! If you create another the first one will be deleted is that ok?");
 
@@ -78,7 +90,7 @@ const CheckTabOverload = () => {
       return true;
 
     }
-    
+
   }
 
 }
@@ -87,7 +99,7 @@ const AppendTab = (value,zip)=>{
 
   if(!CheckTabOverload()){
 
-    var tab = $("<div>").addClass("col-1 active-tab search-tab");
+    var tab = $("<div>").addClass("col-1 active-tab egg-white-background search-tab");
 
     tab.attr("data",value).text(value);
 
@@ -98,7 +110,6 @@ const AppendTab = (value,zip)=>{
     CreateSideBar("right","Meetups",value,LocateMeetups,[value,zip]);
 
     tab.on("click",(e)=>{
-      console.log($(e.target).attr("data"));
       TabHandler($(e.target).attr("data"),GetInputValues().address);
     });
 

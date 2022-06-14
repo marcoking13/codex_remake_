@@ -58,7 +58,7 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
 
        if(content_tab.description){
 
-         var description = $("<p>").text(content_tab.description).addClass("side-text side-bar-description");
+         var description = $("<p>").text(content_tab.description).addClass("side-text light-green-color monospace-font text-center side-bar-description");
          sidebarTab.append(description);
 
        }

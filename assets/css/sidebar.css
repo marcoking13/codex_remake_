@@ -51,40 +51,6 @@ body{
 
 }
 
-@keyframes active-sidebar{
-  0%{
-    width:0px;
-    opacity:0%;
-
-  }
-
-  50%{
-    opacity:0
-  }
-
-  100%{
-    width:200px;
-    opacity:1;
-
-  }
-}
-
-@keyframes nonactive-sidebar{
-  0%{
-    width:200px;
-    opacity:1;
-    visibility:visible;
-
-  }
-
-  100%{
-    width:0px !important;
-    opacity:0;
-    visibility:hidden;
-  }
-}
-
-
 .inactive-sidebar{
 
   animation: nonactive-sidebar .5s 1 ease-in;
@@ -119,30 +85,6 @@ body{
 .sidebar-right{
   right:0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .side-text{

@@ -105,7 +105,7 @@ const AttachCodePen = (term) => {
 
   const codepenElement = $("<iframe>");
 
-  codepenElement.addClass("codepen_editor content_collapse "+term);
+  codepenElement.addClass("codepen_editor width-100 green-border-2px  height-100 content_collapse "+term);
   codepenElement.attr("data",term);
   codepenElement.attr("scrolling","no");
   codepenElement.attr("title","RZvYVZ");
@@ -132,7 +132,7 @@ const AttachIFrame = (id,value)=>{
 
   var iFrameElement = $("<iframe>");
 
-  iFrameElement.addClass("youtube_video content_collapse "+value);
+  iFrameElement.addClass("youtube_video absolute width-100 no-padding no-margin content_collapse "+value);
   iFrameElement.attr("src",embedLink+id);
   iFrameElement.attr("data",value);
   iFrameElement.attr("frameborder",0);
