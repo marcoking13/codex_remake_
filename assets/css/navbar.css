@@ -2,8 +2,8 @@
 
 .upside-title{
   animation:title_fade .5s 1 ease-in;
-  top:2%;
-  left:2%;
+  top:2.5% !important;
+  left:2% !important;
   font-size:40px;
   animation-delay: 2;
 }
@@ -27,4 +27,14 @@
   background:black;
   top:0%;
   width:100%;
+}
+.quiz_submit_button{
+  background:#e6e6e6;
+  color:black;
+  border-color:black;
+}
+.quiz_submit_button:hover{
+  background:green;
+  color:white;
+  border-color:green;
 }

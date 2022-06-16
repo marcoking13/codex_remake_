@@ -1,28 +1,17 @@
 
 .logo{
-  width:50% !important;
-  position:relative;
   bottom:5px;
-  float:right;
   animation-delay: .5s;
   animation-name: checkRotation;
   animation-iteration-count: 1;
   animation-duration: .5s;
   animation-timing-function: ease-in-out;
-  margin-bottom: 100%;
 }
 
 .wrong_border{
   border:2px solid red !important;
 }
 
-.codex-input{
-  background:#1F1F1F;
-  border:1px solid #e6e6e6;
-  color:white !important;
-  box-shadow:none;
-
-}
 
 .codex-input:focus{
   outline:none !important;
@@ -30,17 +19,14 @@
   border-width:2px;
   background:#1F1F1F;
 }
+
 .submit-button:hover{
   background:white;
   color:#1F1F1F !important;
   border-color:white;
   animation: 1 ease-in submitButtonAni .5s;
 }
-.submit-button{
-  background:#1F1F1F;
-  color:white;
-  border-color:#1F1F1F;
-}
+
 .submit-button:hover{
   color:white;
 
@@ -50,15 +36,7 @@
   background:#1F1F1F;
 }
 .title{
-  font-family: cursive;
-  color:#7ED957;
-  position:absolute;
   top:5%;
-  width:100%;
-  text-align: center !important;
-  display: flex;
-  width:100%;
-  justify-content: center;
+  left:30%;
   font-size:70px;
-  margin-top:10%;
 }

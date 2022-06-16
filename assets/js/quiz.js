@@ -47,7 +47,7 @@ const CreateQuestions = (quiz) =>{
 
 
 const CreateSubmit = (quiz,value) =>{
-  var submit = $("<button>").addClass("quiz_submit_button btn btn-secondary width-50 margin-left-25").text("Submit Here");
+  var submit = $("<button>").addClass("quiz_submit_button margin-top-5 btn width-90 margin-left-5 ").text("Submit Here");
 
   submit.appendTo(".quiz-container");
 
@@ -58,17 +58,12 @@ const CreateSubmit = (quiz,value) =>{
   });
 }
 
-
-const CreateQuizHeading = () =>{
-
-}
-
 const CreateQuiz = (value) => {
 
   Cleanup();
 
-  var quizHeading = $("<h1>").text(value).addClass("quiz-title").appendTo(".quiz-container");
-  
+  var quizHeading = $("<h1>").text(value).addClass("quiz-title light-green-color margin-top-5 text-center").appendTo(".quiz-container");
+
   var quiz = QuizConfig[value];
 
   CreateQuestions(quiz);
@@ -95,7 +90,7 @@ const CollectUserAnswers = (div) => {
 
       }else if(index >= $(div).children().length){
 
-        selectedAnswers.push({answer:null,element:$(this)});
+        selectedAnswers.push({answer:5,element:$(this)});
 
         return false;
 
@@ -162,19 +157,19 @@ const CreateCorrectAnswerKey =  (quiz) => {
 
 const CompareUserandKeyAnswers = () => {
 
-  var score = 0;
+  
 
   for(var i = 0; i < selectedAnswers.length;i++){
 
     if(correctAnswers[i] == selectedAnswers[i].answer){
 
-      selectedAnswers[i].element.addClass("correct");
+      selectedAnswers[i].element.addClass("correct light-green-background white_text");
 
       score++;
 
     }else{
 
-      selectedAnswers[i].element.addClass("incorrect");
+      selectedAnswers[i].element.addClass("incorrect red-background white_text");
 
     }
 
@@ -199,9 +194,9 @@ const SubmitQuiz = (quiz,quizValue) =>{
 const DisplayScore = (score,value) => {
 
 
-  var scoreBox = $("<div>").addClass("score_box");
-  var scoreContainer = $("<div>").addClass("score_container");
-  var resetButton = $("<button>").addClass("btn btn-danger score_button").text("Restart")
+  var scoreBox = $("<div>").addClass("score_box text-center light-green-color");
+  var scoreContainer = $("<div>").addClass("score_container absolute margin-top-5 width-50 margin-left-25 padding-5 black-background green-border-2px");
+  var resetButton = $("<button>").addClass("btn btn-danger score_button width-50 margin-left-25").text("Restart")
 
   resetButton.click((e)=>{
 
@@ -221,7 +216,7 @@ const DisplayScore = (score,value) => {
 
 const CreateQuestion = (questionObj,index) => {
 
-  var row = $("<div>").addClass("row quiz-row quiz-row-"+index)
+  var row = $("<div>").addClass("row quiz-row margin-top-2_5 quiz-row-"+index)
 
   row.appendTo(".quiz-container");
 
@@ -233,7 +228,7 @@ const CreateQuestion = (questionObj,index) => {
 
   content.appendTo(row);
 
-  var question = $("<h3>").text(questionObj.question).addClass("quiz-heading");
+  var question = $("<h3>").text(questionObj.question).addClass("question-heading text-center margin-top-5 light-green-color");
 
   question.appendTo(content);
 
@@ -251,7 +246,7 @@ const CreateQuestion = (questionObj,index) => {
 
 const CreateChoices = (choice,index,choiceContainer) => {
 
-  var choices = $("<div>").addClass("choice-container choice"+index).attr("index",index)
+  var choices = $("<div>").addClass("choice-container black-background white_text black-border-2px  border_cut_slight choice"+index).attr("index",index)
 
   choices.appendTo(choiceContainer);
 
@@ -267,7 +262,7 @@ const CreateChoices = (choice,index,choiceContainer) => {
 
   });
 
-  var choiceText = $("<p>").addClass("choice-text").text(choice).data("index",index)
+  var choiceText = $("<p>").addClass("choice-text text-center").text(choice).data("index",index)
 
   choiceText.appendTo(choices);
 

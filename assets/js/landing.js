@@ -35,7 +35,7 @@ const PageRestyle = () => {
 
   var title = $(".title");
 
-  title.removeClass("title")
+  title.removeClass("title  text-center cursive-font margin-top-10 width-100")
   title.addClass("upside-title absolute light-green-color cursive-font z-99");
 
   var navbar = $(".navbar");

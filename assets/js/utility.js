@@ -16,9 +16,9 @@ const AddActive = (container,value)=>{
 
     if(value == $(this).attr("data")){
 
-      $(this).removeClass("invisible");
-      $(this).addClass("visible");
-      $(this).removeClass("send-to-back");
+      $(this).removeClass("invisible negative-max-index");
+      $(this).addClass("visible max-index");
+    
 
       return false;
 

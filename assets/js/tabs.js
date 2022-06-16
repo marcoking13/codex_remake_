@@ -37,9 +37,11 @@ const TabHandler = (value,zip) =>{
 
       RemoveActiveContent(value);
       RemoveActive("side-container-right",value);
+      StopAllIFrames();
       RemoveAllActiveTabs();
 
       $('.search-tab').each(function() {
+
         k++;
 
         var data = $(this).attr("data");
@@ -65,11 +67,14 @@ const TabHandler = (value,zip) =>{
 
         }
 
+
+
     });
 
 }
 
 const CheckTabOverload = () => {
+
   var tabMax = 12;
   var tabsArr = $(".tabs-container").children();
 
@@ -78,6 +83,7 @@ const CheckTabOverload = () => {
     var warning = confirm("You have too many tabs! If you create another the first one will be deleted is that ok?");
 
     if(warning){
+
       var deletedData = $(tabsArr[0]).attr("data");
 
       DeleteContent(deletedData);
@@ -99,7 +105,7 @@ const AppendTab = (value,zip)=>{
 
   if(!CheckTabOverload()){
 
-    var tab = $("<div>").addClass("col-1 active-tab egg-white-background search-tab");
+    var tab = $("<div>").addClass("col-1 active-tab text-center egg-white-background search-tab");
 
     tab.attr("data",value).text(value);
 

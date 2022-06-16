@@ -1,8 +1,8 @@
+var hidden_sidebars = false;
+$(".container-fluid").click((e)=>{
 
-$(".content-container").click((e)=>{
-
-    HideSidebar("right");
-    HideSidebar("left");
+      HideSidebar("right");
+      HideSidebar("left");
 
 });
 
@@ -20,7 +20,7 @@ $(".submit-button").click((event)=>{
 
       AppendInitialTab(GetInputValues().topic,GetInputValues().address);
       AttachFeaturedArrows();
-      
+
       didPageRestyle = true;
 
     }

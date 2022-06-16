@@ -14,7 +14,7 @@ const CreateArrow = (side,isQuizArrow,text) => {
     const arrowButton =  $("<img>");
     const arrowText = $("<p>");
 
-    arrowText.addClass("side_bar_text");
+    arrowText.addClass("side_bar_text light-green-color monospace-font text-center");
     arrowText.text(text);
     arrowContainer.addClass(`arrow ${side}_arrow`);
     arrowButton.addClass(`sidebar_button sidebar_button_${side}`);
@@ -26,7 +26,7 @@ const CreateArrow = (side,isQuizArrow,text) => {
     $(arrowContainer).append(arrowText);
 
     arrowContainer.on("click",(e)=>{
-
+      hidden_sidebars = true;
       ShowSidebar(side);
 
       if(isQuizArrow){
@@ -105,7 +105,7 @@ const AttachCodePen = (term) => {
 
   const codepenElement = $("<iframe>");
 
-  codepenElement.addClass("codepen_editor width-100 green-border-2px  height-100 content_collapse "+term);
+  codepenElement.addClass("codepen_editor margin-top-2_5 width-80 green-border-2px absolute z-99 height-100 content_collapse "+term);
   codepenElement.attr("data",term);
   codepenElement.attr("scrolling","no");
   codepenElement.attr("title","RZvYVZ");
