@@ -1,14 +1,15 @@
-var hidden_sidebars = false;
-$(".container-fluid").click((e)=>{
 
-      HideSidebar("right");
-      HideSidebar("left");
+
+$(".content-container").click((e)=>{
+
+        HideSidebar("right",false);
+        HideSidebar("left",true);
+
 
 });
 
 
 $(".submit-button").click((event)=>{
-
    event.preventDefault();
 
   if(GetInputValues().topic && GetInputValues().address){

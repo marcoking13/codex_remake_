@@ -1,12 +1,9 @@
 
-var isQuizTabOpen = false;
-var isMeetupTabOpen = false;
-
 
 const CreateSideBar = (side,heading,value,content_creation,args)=>{
 
   RemoveActive("side-container-right",value);
-  var active = isMeetupTabOpen ? "active-sidebar" : "inactive-sidebar";
+  var active = isMeetupTabOpen ? "active-sidebar" : "inactive-sidebar-static";
   var sidebarNav = $("<nav>").addClass("sidebar sidebar-"+side + " "+active).attr("data",value);
   var sidebarHeadingContainer = $("<div>").addClass("sidebar-container-heading");
   var sidebarHeading = $("<p>").addClass("sidebar-heading").text(heading);
@@ -15,13 +12,14 @@ const CreateSideBar = (side,heading,value,content_creation,args)=>{
   $(sidebarHeadingContainer).appendTo(sidebarNav);
   $(sidebarHeading).appendTo(sidebarHeadingContainer);
 
-  CreateSidebarContent(content_creation,args);
+  CreateSidebarContent(content_creation,args,value);
 
 }
 
-const CreateSidebarContent = async (functionExecuted,args)=>{
+const CreateSidebarContent = async (functionExecuted,args,value)=>{
 
    var results = await functionExecuted(args[0],args[1]);
+    var sideBarData = $(`[data=${value}].sidebar-right`);
 
    if(results){
 
@@ -29,7 +27,14 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
 
      for(var i = 0; i <results.results.length; i++){
 
-        var splitDescription = results.results[i].description.slice(0, 200);
+
+        var splitDescription;
+        if(results.results[i].description.length <= 0){
+
+          splitDescription = results.results[i].labels;
+        }else{
+          splitDescription = results.results[i].description.slice(0,200);
+        }
 
          content.push(
            {
@@ -58,7 +63,7 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
 
        if(content_tab.description){
 
-         var description = $("<p>").text(content_tab.description).addClass("side-text light-green-color monospace-font text-center side-bar-description");
+         var description = $("<p>").text(content_tab.description).addClass("side-text monospace-font text-center side-bar-description");
          sidebarTab.append(description);
 
        }
@@ -75,15 +80,18 @@ const CreateSidebarContent = async (functionExecuted,args)=>{
 
      }
 
-       $(".sidebar-right").append(sidebarTab);
+
+
+         sideBarData.append(sidebarTab);
+
 
      });
 
    }else{
 
-    var noResults = $("<div>").addClass("side-bar-tab side-bar-tab-right");
+    var noResults = $("<div>").addClass("side-bar-tab side-bar-tab-right").text("No Results");
 
-     $(".sidebar").append(noResults);
+     sideBarData.append(noResults);
 
    }
 
@@ -100,9 +108,14 @@ const ShowSidebar = (side) =>{
 }
 
 
-const HideSidebar = (side) =>{
+const HideSidebar = (side,isMeetup) =>{
 
     var sidebar= $(".sidebar-"+side);
+    if(isMeetup){
+      isMeetupTabOpen = false;
+    }else{
+      isQuizTabOpen = false;
+    }
 
     sidebar.removeClass("active-sidebar");
     sidebar.addClass("inactive-sidebar");

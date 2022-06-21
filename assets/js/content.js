@@ -26,7 +26,7 @@ const CreateArrow = (side,isQuizArrow,text) => {
     $(arrowContainer).append(arrowText);
 
     arrowContainer.on("click",(e)=>{
-      hidden_sidebars = true;
+
       ShowSidebar(side);
 
       if(isQuizArrow){
@@ -46,9 +46,7 @@ const CreateArrow = (side,isQuizArrow,text) => {
 
 const GeoLocation = async (zip) =>{
 
-  var geolocationKey = "AIzaSyCJAQvR6R-V1xdtlCoXg3tvR4tuVTqD1iw";
-
-  const geolocation = await $.get({url:"https://maps.googleapis.com/maps/api/geocode/json?address="+zip+"&key="+geolocationKey});
+  const geolocation = await $.get({url:geoEndpoint+geoExtension+"&address="+zip});
 
   return geolocation;
 
@@ -56,7 +54,6 @@ const GeoLocation = async (zip) =>{
 
 const LocateMeetups = async (topic,zip) =>{
 
-  var eventKey = 'segqeo3y0quEC2OUIHHT1oUTEay_8AFgCBrgNyKI';
 
   var coords = await GeoLocation(zip);
 
@@ -73,7 +70,7 @@ const LocateMeetups = async (topic,zip) =>{
 
     const meetups = await $.ajax({
 
-      url:"https://api.predicthq.com/v1/events/?q="+topic +"&within=100km@"+lat+","+lng+"&catagory=programming&page=5&country=US&fields=next_event,time,group_photos&callback=?",
+      url:eventEndpoint+"?q="+topic +"&within=100km@"+lat+","+lng+eventExtension,
       headers: {
          'Authorization':'Bearer '+eventKey,
          'Accept':'application/json'
@@ -119,7 +116,7 @@ const AttachCodePen = (term) => {
 
   codepenContainer.append(codepenElement);
 
-  AddActive("codepen_container",term,"active_content_codepen");
+  AddActive("codepen_container",term,);
 
 }
 
@@ -149,12 +146,9 @@ const AttachIFrame = (id,value)=>{
 
 const TutorialAndCode = (term) => {
 
-  const api_key = "AIzaSyDT3CvnaTo7AnBgi4XRNHPrf0_hDTrF0EE";
-  const youtubeEndpoint = "https://www.googleapis.com/youtube/v3/";
-  const youtubeURL = youtubeEndpoint + "search?&q=" + term + '%20tutorial%20programming' + "&part=snippet&chart=mostPopular&videoCategoryId=27&type=video&relevanceLanguage=en&maxResults=11&key=" + api_key;
 
   $.ajax({
-    url:youtubeURL,
+    url:youtubeURL+"&q="+term+"%20programming%20tutorial",
   }).then((response)=>{
 
     var videos = response.items;
@@ -176,15 +170,15 @@ const RemoveActiveContent = (value) => {
 
   $(".quiz-container").empty();
 
-  RemoveActive("codepen_container",value,"active-container");
-  RemoveActive("youtube_video_container",value,"active-container");
+  RemoveActive("codepen_container",value);
+  RemoveActive("youtube_video_container",value);
 
 }
 
 const AddActiveContent = (value) => {
 
-  AddActive("codepen_container",value,"active-container");
-  AddActive("youtube_video_container",value,"active-container");
+  AddActive("codepen_container",value);
+  AddActive("youtube_video_container",value);
 
 }
 

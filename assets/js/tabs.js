@@ -55,8 +55,6 @@ const TabHandler = (value,zip) =>{
 
           if(isMeetupTabOpen){
             ShowSidebar("right");
-          }else{
-            HideSidebar("right");
           }
 
           return false;

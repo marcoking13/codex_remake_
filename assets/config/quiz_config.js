@@ -8,7 +8,7 @@ var QuizConfig = {
         "Hyper Texture Maker Language",
         "Home Tool Maker Language"
       ],
-      correctIndex: 2,
+      correctIndex: 1,
     },
     1:   {
       question: "Choose the correct HTML (<>) element for the largest heading:",
@@ -31,14 +31,14 @@ var QuizConfig = {
       correctIndex: 1
     },
     3: {
-      question: "Which of these elements are all <table> elements?",
+      question: "Which of these elements are not table elements?",
       choices:[
         "<tabel>",
         "<col>",
         "<row>",
         "<tab>"
       ],
-      correctIndex: 0
+      correctIndex: 3
     },
     4:  {
       question: "How can you make a bulleted list?",
@@ -46,7 +46,7 @@ var QuizConfig = {
         "<ul><li/></ul>",
         "<li></li>",
         "<list>",
-        "<bullet>"
+        "<ol><li/></ol>"
       ],
       correctIndex: 0
     },
@@ -97,14 +97,14 @@ var QuizConfig = {
         "<href>",
         "<a href='link_url'>"
       ],
-      correctIndex: 1
+      correctIndex: 3
       }
     },
     Javascript_Quiz: {
     0: {
       question: "In css, h1 is considered a/an",
       choices:[
-        "Header Big",
+        "Biggest Heading",
         "Small Heading",
         "Smallest Heading",
         "No Bold"
@@ -169,7 +169,7 @@ var QuizConfig = {
         "background:[]",
         "color:{}"
       ],
-      correctIndex: 0,
+      correctIndex:1,
     },
     7:  {
       question: "Which property is used to change the font of an element?",
@@ -247,11 +247,11 @@ var QuizConfig = {
       question: "How to write an IF statement for executing some code if i is NOT equal to 5?",
       choices:[
         "if(!)",
-        "if(false)",
+        "if(!i = 5)",
         "else{}",
         "if else",
       ],
-      correctIndex: 2,
+      correctIndex: 1,
     },
     5:  {
       question: "How does a WHILE loop start?",
@@ -294,7 +294,7 @@ var QuizConfig = {
       correctIndex: 0,
     },
     9:  {
-      question: "How do you round the number 7.25, to the nearest integer?",
+      question: "How do you round the number 7.25, to the nearest highest integer?",
       choices:[
         "Mathf.roundToInt",
         "Mathf.Floor",
@@ -341,7 +341,7 @@ var QuizConfig = {
         "require(React)",
         "require('React')",
         "import(React)",
-        "import React "
+        "import React from "
       ],
       correctIndex: 3,
     },
@@ -424,7 +424,7 @@ var QuizConfig = {
       correctIndex: 0,
     },
     2: {
-      question: "What server allows AJAX calls to test?",
+      question: "What app allows AJAX calls to test requests and responses?",
       choices:[
         "Postman",
         "JSON",
@@ -530,7 +530,7 @@ var QuizConfig = {
       choices:[
         "Provides the output of one stram to another stream",
         "Stops the streaming of one to another",
-        "Used to restrict the stream of app",
+        "Used to merge streams into one for apps",
         "All of the Above"
       ],
       correctIndex: 2,
@@ -609,59 +609,57 @@ var QuizConfig = {
     },
     MySQL_Quiz: {
     0: {
-      question: "MySQL runs on which operating systems?",
+      question: "MySQL is native to Javascript?",
       choices:[
-        "Home Tool Markup Language",
-        "Hyper Text Markup Language",
-        "Hyper Texture Maker Language",
-        "Home Tool Maker Language"
+        "True",
+        "False"
       ],
-      correctIndex: 2,
+      correctIndex: 1,
     },
     1:   {
       question: "To remove duplicate rows from the result set of a SELECT use the following keyword:",
       choices:[
-        "Home Tool Markup Language",
-        "Hyper Text Markup Language",
-        "Hyper Texture Maker Language",
-        "Home Tool Maker Language"
+        "DELETE table_name",
+        "REMOVE table_name",
+        "DELETE table_name WHERE condition",
+        "REMOVE table_name WHERE condition"
       ],
       correctIndex: 2,
     },
     2: {
       question: "Which of the following can add a row to a table?",
       choices:[
-        "Home Tool Markup Language",
-        "Hyper Text Markup Language",
-        "Hyper Texture Maker Language",
-        "Home Tool Maker Language"
+        "ADD data WHERE condition",
+        "INSERT INTO table_name",
+        "INSERT table_name",
+        "INSERT table_name IN condition"
       ],
-      correctIndex: 2,
+      correctIndex: 1,
     },
     3: {
       question: "Which SQL statement is used to insert a new data in a database?",
       choices:[
-        "Home Tool Markup Language",
-        "Hyper Text Markup Language",
-        "Hyper Texture Maker Language",
-        "Home Tool Maker Language"
+        "INSERT INTO (DATA NAME)",
+        "ADD (DATA NAME) TO table_name",
+        "INSERT INTO DATA ()",
+        "INSERT NEW (DATA NAME) TO table_name"
       ],
       correctIndex: 2,
     },
     4:  {
       question: "Which function used to get the current time in mysql?",
       choices:[
-        "Home Tool Markup Language",
-        "Hyper Text Markup Language",
-        "Hyper Texture Maker Language",
-        "Home Tool Maker Language"
+        "NEWDATE()",
+        "GETDATE()",
+        "INSERTDATE()",
+        "GETDATE INTO TABLE"
       ],
-      correctIndex: 2,
+      correctIndex: 1,
     },
     5:  {
       question: "What of the following is not the function of valid aggregate function?",
       choices:[
-        "Adds Value",
+        "Calculates a set of Values",
         "All of the Above",
         "Return set of Values",
         "None of the Above"
@@ -671,7 +669,7 @@ var QuizConfig = {
     6:  {
       question: "What SQL clause is used to restrict the rows returned by a query?",
       choices:[
-        "WHERE",
+        "LIMIT",
         "WHEN",
         "WHAT",
         "RESTRICT"
@@ -682,9 +680,9 @@ var QuizConfig = {
       question: "How many characters are allowed to create a database name?",
       choices:[
         "Unlimited",
-        "10",
-        "59",
-        "99"
+        "8000",
+        "599",
+        "10009"
       ],
       correctIndex: 1,
 
@@ -692,22 +690,22 @@ var QuizConfig = {
     8:  {
       question: "MySQL Access security is controlled through?",
         choices:[
-          "HTTPS",
+          "DPAPI",
           "HTTP",
           "Microsoft",
           "CORS"
         ],
-        correctIndex: 2,
+        correctIndex: 1,
       },
     9:  {
       question: "The USE command?",
       choices:[
-        "Debugs",
-        "Hacks",
+        "Selects File",
+        "Selects Database",
         "Saves File",
         "Quit App"
       ],
-      correctIndex: 0,
+      correctIndex: 1,
       }
     },
     MongoDB_Quiz: {

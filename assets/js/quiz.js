@@ -38,11 +38,13 @@ const Cleanup = ()=>{
 }
 
 const CreateQuestions = (quiz) =>{
+
   for(var i = 0; i <=  9; i++){
 
     CreateQuestion(quiz[i],i);
 
   }
+  
 }
 
 
@@ -62,7 +64,7 @@ const CreateQuiz = (value) => {
 
   Cleanup();
 
-  var quizHeading = $("<h1>").text(value).addClass("quiz-title light-green-color margin-top-5 text-center").appendTo(".quiz-container");
+  var quizHeading = $("<h1>").text(value).addClass("quiz-title light-green-color  text-center").appendTo(".quiz-container");
 
   var quiz = QuizConfig[value];
 
@@ -157,7 +159,7 @@ const CreateCorrectAnswerKey =  (quiz) => {
 
 const CompareUserandKeyAnswers = () => {
 
-  
+
 
   for(var i = 0; i < selectedAnswers.length;i++){
 
@@ -270,7 +272,7 @@ const CreateChoices = (choice,index,choiceContainer) => {
 
 const CreateQuizSideBar = () => {
 
-  var active = isQuizTabOpen ? "active-sidebar" : "inactive-sidebar";
+  var active = isQuizTabOpen ? "active-sidebar" : "inactive-sidebar-static";
 
   var sidebarNav = $("<nav>").addClass("sidebar sidebar-left "+active);
 

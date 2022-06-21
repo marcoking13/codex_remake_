@@ -60,7 +60,11 @@ body{
 
 
 }
-
+.inactive-sidebar-static{  width:0px ;
+  z-index:-999;
+  opacity:0 ;
+  visibility:hidden;
+}
 
 .active-sidebar > div{
     opacity:1;
