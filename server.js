@@ -16,7 +16,7 @@ app.get('/',function(req,res) {
 
 
 
-app.use('/img',express.static(path.join(__dirname, '/public/img')));
-app.use('/js',express.static(path.join(__dirname, '/public/js')));
-app.use('/css',express.static(path.join(__dirname, '/public/css')));
-app.use('/config',express.static(path.join(__dirname, '/public/config')));
+app.use('/img',express.static(path.join(__dirname, '/assets/img')));
+app.use('/js',express.static(path.join(__dirname, '/assets/js')));
+app.use('/css',express.static(path.join(__dirname, '/assets/css')));
+app.use('/config',express.static(path.join(__dirname, '/assets/config')));
