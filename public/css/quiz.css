@@ -1,0 +1,38 @@
+.question-heading {
+  font-size:30px;
+}
+
+.choice-text {
+  font-size:20px;
+}
+
+.score_box{
+  font-size:40px;
+}
+
+.choice-text{
+  font-size:22px;
+}
+.choice-container :hover{
+  background:white ;
+  color:black !important;
+
+  border-color:black !important;
+}
+
+
+.active_choice{
+  background:#e6e6e6;
+  color:black !important;
+  border-color:black;
+}
+
+.incorrect{
+  background:red !important;
+  color:white !important;
+}
+
+.correct{
+  background:green !important;
+  color:white !important;
+}

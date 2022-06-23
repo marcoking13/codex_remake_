@@ -1,0 +1,7 @@
+
+.tab_container_animation {
+  transition: tab_container_entrance .5s ease-in 1;
+}
+.tab_animation {
+  transition: tab_entrance .5s ease-in 1;
+}

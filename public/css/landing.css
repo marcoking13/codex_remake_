@@ -1,0 +1,42 @@
+
+.logo{
+  bottom:5px;
+  animation-delay: .5s;
+  animation-name: checkRotation;
+  animation-iteration-count: 1;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+}
+
+.wrong_border{
+  border:2px solid red !important;
+}
+
+
+.codex-input:focus{
+  outline:none !important;
+  border-color:green;
+  border-width:2px;
+  background:#1F1F1F;
+}
+
+.submit-button:hover{
+  background:white;
+  color:#1F1F1F !important;
+  border-color:white;
+  animation: 1 ease-in submitButtonAni .5s;
+}
+
+.submit-button:hover{
+  color:white;
+
+}
+.form-control:focus{
+  outline:none !important;
+  background:#1F1F1F;
+}
+.title{
+  top:5%;
+  left:30%;
+  font-size:70px;
+}

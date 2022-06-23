@@ -1,0 +1,120 @@
+
+.side-bar-tab{
+  padding:5%;
+  background:#e6e6e6;
+  text-align:center;
+  color:black;
+  font-size:20px;
+  border-top:1px solid black;
+}
+
+
+.sidebar-container{
+  width:100%;
+}
+
+.visible > div {
+  visibility: visible;
+}
+.invisible > div {
+  visibility: hidden !important;
+
+}
+
+.sidebar{
+  position:absolute;
+  top:0;
+  opacity:0;
+  z-index:-999;
+  height: 1200px;
+  width:0px;
+  padding-bottom:20%;
+  background: #F5F5F5;
+
+}
+
+
+body{
+  z-index:999;
+}
+.sidebar-heading{
+  color:white !important;
+  font-family: monospace;
+  font-size:20px;
+  text-align: center !important;
+}
+.sidebar-container-heading{
+  background:black !important;
+  width:100%;
+  padding:5%;
+
+}
+
+.inactive-sidebar{
+
+  animation: nonactive-sidebar .5s 1 ease-in;
+  width:0px ;
+  z-index:-999;
+  opacity:0 ;
+  visibility:hidden;
+
+
+}
+.inactive-sidebar-static{  width:0px ;
+  z-index:-999;
+  opacity:0 ;
+  visibility:hidden;
+}
+
+.active-sidebar > div{
+    opacity:1;
+}
+.active-sidebar{
+  animation: active-sidebar .5s 1 ease-in;
+  width:200px;
+  visibility:visible;
+  opacity:1;
+  z-index:999;
+
+
+}
+.active-sidebar > .sidebar-text{
+  opacity:1;
+  color:black;
+}
+.sidebar-left{
+  left:0;
+}
+.sidebar-right{
+  right:0;
+}
+
+
+.side-text{
+  font-family: monospace;
+  color:black;
+  margin-top:5%;
+  font-size: 12px;
+  text-align:center;
+}
+
+.side-bar-title{
+
+  color:green;
+  font-weight: bold;
+  font-size:16px;
+}
+
+.side-bar-place{
+  width:100%;
+  text-align:center;
+}
+.side-bar-place{
+  width:100%;
+
+  text-align:center;
+}
+.icon-meetup{
+  width:50%;
+  margin-left:10%;
+}

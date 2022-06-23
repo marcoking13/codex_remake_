@@ -1,0 +1,148 @@
+@keyframes youtube_disappears {
+  0%{
+    opacity:1;
+    height:500px
+  }
+  100%{
+    opacity:0;
+    height:0px;
+  }
+}
+
+
+
+@keyframes active-sidebar{
+  0%{
+    width:0px;
+    opacity:0%;
+
+  }
+
+  50%{
+    opacity:0
+  }
+
+  100%{
+    width:200px;
+    opacity:1;
+
+  }
+}
+
+@keyframes tab_container_entrance {
+  0%{
+    top:0%;
+
+  }
+  100%{
+    top:
+  }
+}
+
+@keyframes tab_entrance {
+  0%{
+    height:0%;
+
+  }
+  100%{
+    height:
+  }
+}
+
+
+
+@keyframes nonactive-sidebar{
+  0%{
+    width:200px;
+    opacity:1;
+    visibility:visible;
+
+  }
+
+  100%{
+    width:0px !important;
+    opacity:0;
+    visibility:hidden;
+  }
+}
+
+
+
+@keyframes codepen_appears {
+  0%{
+    left:105%;
+    opacity:0;
+  }
+  100%{
+    left:10%;
+    opacity:1
+  }
+}
+
+
+
+/* Animations */
+
+@keyframes youtube_appears {
+  0%{
+    opacity:0;
+    height:0;
+  }
+  100%{
+    height:500px;
+    opacity:1;
+  }
+}
+
+
+
+@keyframes checkRotation {
+  0%{
+    transform:rotate(0deg);
+  }
+  50%{
+    transform:rotate(20deg);
+  }
+  100%{
+    transform:rotate(0deg);
+  }
+}
+
+@keyframes submitButtonAni {
+  from {
+    background:#1F1F1F ;
+    color:white;
+    border-color:#1F1F1F ;
+  }
+  to{
+    background:white ;
+    color:#1F1F1F;
+    border-color:white ;
+  }
+}
+
+
+@keyframes upside-nav-animation{
+  from{
+    position:absolute;
+    top:40%;
+
+  }
+
+  to{
+    top:0%;
+    background:black;
+  }
+}
+
+
+@keyframes title_fade{
+  from{
+    opacity:0%;
+
+  }
+
+  to{
+    opacity:100%;
+  }
+}

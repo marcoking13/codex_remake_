@@ -1,0 +1,74 @@
+
+.activeScreen{
+  height:500px !important;
+}
+
+.active-tab{
+  background:#7ED957 !important;
+  color: white !important;
+}
+
+.codepen_editor{
+  height:300px;
+}
+
+.youtube_video{
+  top:35%;
+  height:500px;
+  left:10%;
+  width:80% !important;
+}
+
+.side_bar_text{
+  font-size: 16px;
+}
+
+.left_arrow{
+  left:2.5% !important;
+}
+
+.right_arrow{
+  right:2.5% !important;
+}
+
+.codepen_editor{
+  top:95%;
+  left:10%;
+  width:80%;
+}
+
+.search-tab{
+  width:15%;
+  height:30px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.available{
+  width:40px;
+}
+
+.active-container{
+  opacity:1;
+}
+
+.inactive_content_youtube {
+  opacity:0;
+  height:0px;
+}
+
+.active_content_youtube {
+  opacity:1;
+  height:500px;
+}
+
+.inactive_content_codepen{
+  opacity:0 !important;
+  left:105%;
+}
+
+.active_content_codepen {
+  opacity:1;
+  left:10%;
+
+}

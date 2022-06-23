@@ -1,0 +1,40 @@
+
+
+.upside-title{
+  animation:title_fade .5s 1 ease-in;
+  top:2.5% !important;
+  left:2% !important;
+  font-size:40px;
+  animation-delay: 2;
+}
+
+
+.search-row{
+  margin-top:1.5%;
+}
+
+.navbar {
+  position:absolute;
+  width:100%;
+  top:40%;
+  padding:0;
+  height:90px !important;
+}
+
+.upside-navbar{
+  position:absolute;
+  animation: upside-nav-animation .5s ease-in 1;
+  background:black;
+  top:0%;
+  width:100%;
+}
+.quiz_submit_button{
+  background:#e6e6e6;
+  color:black;
+  border-color:black;
+}
+.quiz_submit_button:hover{
+  background:green;
+  color:white;
+  border-color:green;
+}
